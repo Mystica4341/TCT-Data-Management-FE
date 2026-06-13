@@ -4,7 +4,7 @@
 
 ## Khái quát
 
-TCT Homemart Data Management là website dùng để quản lý các sản phẩm của Công ty gạch An Khánh, bao gồm các chức năng:
+TCT Homemart Data Management là website dùng để quản lý các sản phẩm của Công ty gạch TCT Homemart, bao gồm các chức năng:
 
 ### Sản phẩm
 - Tạo mã hàng, cập nhật mã hàng, nhập excel vào database, chỉnh sửa giá tiền, chỉnh sửa giá tiền hàng loạt, cập nhật excel vào mã hàng,...
@@ -71,6 +71,11 @@ git clone https://github.com/Mystica4341/TCT-Data-Management-FE.git
   + Thêm chức năng xem cho SAPO
   + Thêm thiết lập cho quản trị viên để điều chỉnh Mail nhận bên Gmail, Mail được CC, các FileId của Google Drive
   + ... sẽ update thêm
+
+### Version 1.2
+![TCT Homemart Data Management Preview](./public/images/banner/banner.png)
+- Thêm các chức năng như:
+  + Thêm Chức năng tạo Mẫu Trình, Phiếu Gửi/Trả Hàng
 
 ## License
 
