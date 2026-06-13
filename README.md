@@ -1,10 +1,10 @@
-# An Khánh Data Management - Webapp quản lý dữ liệu sản phẩm nội bộ
+# TCT Homemart Data Management - Webapp quản lý dữ liệu sản phẩm nội bộ
 
-![An Khánh Data Management Preview](./banner.png)
+![TCT Homemart Data Management Preview](./public/images/banner/banner.png)
 
 ## Khái quát
 
-An Khánh Data Management là website dùng để quản lý các sản phẩm của Công ty gạch An Khánh, bao gồm các chức năng:
+TCT Homemart Data Management là website dùng để quản lý các sản phẩm của Công ty gạch An Khánh, bao gồm các chức năng:
 
 ### Sản phẩm
 - Tạo mã hàng, cập nhật mã hàng, nhập excel vào database, chỉnh sửa giá tiền, chỉnh sửa giá tiền hàng loạt, cập nhật excel vào mã hàng,...
@@ -36,7 +36,7 @@ An Khánh Data Management là website dùng để quản lý các sản phẩm c
 Clone repository bằng lệnh sau:
 
 ```bash
-git clone https://github.com/phuongkiet/ak-data-management-client.git
+git clone https://github.com/Mystica4341/TCT-Data-Management-FE.git
 ```
 
 > Windows Users: đặt repository gần thư mục root của drive nếu bạn gặp vấn để khi clone.
@@ -60,10 +60,10 @@ git clone https://github.com/phuongkiet/ak-data-management-client.git
 
 ## Change Log
 ### Version 1.0
-![An Khánh Data Management Preview](./banner.png)
+![TCT Homemart Data Management Preview](./public/images/banner/banner.png)
 
 ### Version 1.01
-![An Khánh Data Management Preview](./public/images/banner/banner2.png)
+![TCT Homemart Data Management Preview](./public/images/banner/banner.png)
 - Thêm các chức năng như:
   + Tạo excel report gửi qua gmail, thêm các dữ liệu vào metadata để tối ưu hiệu suất và giảm số lần gọi API
   + Tùy chỉnh lại các bảng danh mục
