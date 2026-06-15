@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../app/stores/store";
 import PageMeta from "../../components/common/PageMeta";
@@ -17,6 +17,11 @@ const StrategyProductDetail = () => {
   } = productStore;
   const { id } = useParams();
 
+  // 1. Local editable state
+  const [updateProduct, setUpdateProduct] = useState(
+    productStore.strategyProductForm,
+  );
+
   // Load product detail when id changes
   useEffect(() => {
     if (id) {
@@ -24,13 +29,10 @@ const StrategyProductDetail = () => {
     }
   }, [id, loadStrategyProductDetail]);
 
-  // Cleanup effect - reset form when component unmounts
+  // 2. Sync local state when productDetail changes
   useEffect(() => {
-    return () => {
-      // Reset form when leaving the page to avoid showing old data
-      productStore.resetStrategyProductForm();
-    };
-  }, [productStore]);
+    setUpdateProduct(productStore.strategyProductForm);
+  }, [productStore.strategyProductForm]);
 
   if (!id) {
     return <div>Không tìm thấy sản phẩm</div>;
@@ -38,7 +40,8 @@ const StrategyProductDetail = () => {
 
   // 3. Save handler
   const handleSave = async () => {
-    const result = await editStrategyProduct(+id, productStore.strategyProductForm);
+    const updatedProduct = { ...updateProduct };
+    const result = await editStrategyProduct(+id, updatedProduct);
     if (result) {
       loadStrategyProductDetail(+id);
     }
@@ -47,7 +50,7 @@ const StrategyProductDetail = () => {
   return (
     <div>
       <PageMeta
-        title="TCT Homemart Data Management"
+        title="An Khánh Data Management"
         description={"Sản phẩm " + strategyProductDetail.autoBarcode}
       />
       <span>
@@ -62,24 +65,15 @@ const StrategyProductDetail = () => {
       </span>
       <div className="grid grid-cols-1 gap-6">
         <div className="col-span-8 mb-6">
-          <StrategyProductGeneralInfo 
-            key={strategyProductDetail.id} 
-            product={strategyProductDetail} 
-          />
+          <StrategyProductGeneralInfo product={strategyProductDetail} />
         </div>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
         <div className="col-span-8 space-y-6">
-          <StrategyProductDefaultInputs 
-            key={strategyProductDetail.id} 
-            product={strategyProductDetail} 
-          />
+          <StrategyProductDefaultInputs product={strategyProductDetail} />
         </div>
         <div className="col-span-8 xl:col-span-4 space-y-6">
-          <StrategyProductInputGroupRight
-            key={strategyProductDetail.id}
-            product={strategyProductDetail}
-          />
+          <StrategyProductInputGroupRight product={strategyProductDetail} />
         </div>
       </div>
       <div className="mt-6 flex justify-start">

@@ -270,6 +270,7 @@ function ProductTable() {
               <div className="hidden md:inline-flex md:mr-2 py-2">
                 <Button
                   onClick={handleImportClick}
+                  disabled={true}
                   className="ml-2 h-8 py-5 font-semibold rounded bg-sky-700 hover:bg-sky-800 text-white"
                 >
                   Nhập file

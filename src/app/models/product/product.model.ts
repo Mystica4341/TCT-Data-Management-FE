@@ -42,6 +42,8 @@ export interface ProductDto {
   waterAbsorption: number;
   patternQuantity: number;
   brickPatternShortName: string;
+  brickSurfaceShortName: string;
+  materialDescription: string;
   deliveryEstimatedDate: string;
   creator: string;
   modifier: string;
@@ -187,6 +189,8 @@ export interface ProductDetail {
   isEdgeGrinding: boolean;
   hardnessMOHS: number;
   brickPatternShortName: string;
+  brickSurfaceShortName: string;
+  materialDescription: string;
   otherNote: string;
   deliveryEstimatedDate: string;
   autoCalculatedUnit: string;
@@ -369,6 +373,8 @@ export interface EditProductDto {
 
   hardnessMOHS?: number | null;
   brickPatternShortName?: string | null;
+  brickSurfaceShortName?: string | null;
+  materialDescription?: string | null;
   otherNote?: string | null;
   deliveryEstimatedDate?: string | null;
   productSpecialExtraNote?: string | null;

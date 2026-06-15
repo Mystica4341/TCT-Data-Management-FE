@@ -154,17 +154,21 @@ const ProductDefaultInputs = ({
     supplierId,
     orderNumber,
     patternId,
+    surfaceId,
   }: {
     supplierId?: number;
     orderNumber?: string | number | null;
     patternId?: number;
+    surfaceId?: number;
   }) => {
     if (!supplierId || !orderNumber) return "";
     const supplier = productSupplierList.find((x) => x.id === supplierId);
     const pattern = productPatternList.find((x) => x.id === patternId);
+    const surface = productSurfaceList.find((x) => x.id === surfaceId);
     if (!supplier?.supplierShortCode) return "";
     const patternCode = pattern?.shortCode || "";
-    return `${supplier.supplierShortCode}.${orderNumber}${patternCode}`;
+    const surfaceCode = surface?.shortCode || "";
+    return `${surfaceCode}.${patternCode}.${supplier.supplierShortCode}.${orderNumber}`;
   };
 
   // Add effect để cập nhật autoBarCode khi các trường liên quan thay đổi
@@ -177,6 +181,7 @@ const ProductDefaultInputs = ({
             ? productStore.productForm.productOrderNumber
             : manualOrderNumber) ?? undefined,
         patternId: productStore.productForm.brickPatternId ?? undefined,
+        surfaceId: productStore.productForm.surfaceFeatureId ?? undefined,
       });
       productStore.updateProductForm("autoBarCode", newBarCode);
     }
@@ -233,28 +238,9 @@ const ProductDefaultInputs = ({
       supplierId: productStore.productForm.supplierId ?? undefined,
       orderNumber: numericValue ?? undefined,
       patternId: productStore.productForm.brickPatternId ?? undefined,
+      surfaceId: productStore.productForm.surfaceFeatureId ?? undefined,
     });
   };
-
-  // const handleConfirmProductCodeChange = () => {
-  //   if (productStore.productForm.companyCodeId && supplierItemCode) {
-  //     const companyCode = productCompanyCodeList.find(
-  //       (x) => x.id === productStore.productForm.companyCodeId
-  //     );
-
-  //     const lastSixChars = supplierItemCode.slice(-6);
-
-  //     if (companyCode?.codeName) {
-  //       const newSkuCode = `${companyCode.codeName} ${lastSixChars}`;
-  //       productStore.updateProductForm("confirmSupplierItemCode", newSkuCode);
-  //     }
-  //   }
-  // };
-
-  // Add effect to update SKU when supplierItemCode changes
-  // useEffect(() => {
-  //   handleConfirmProductCodeChange();
-  // }, [supplierItemCode, productStore.productForm.companyCodeId]);
 
   const handleWebsiteProductNameChange = () => {
     if (
@@ -451,24 +437,6 @@ const ProductDefaultInputs = ({
     }
   };
 
-  const updateConfirmSupplierItemCode = (
-    supplierItemCodeValue: string,
-    companyCodeIdValue: number | undefined
-  ) => {
-    const companyCode = productCompanyCodeList.find(
-      (x) => x.id === companyCodeIdValue
-    );
-
-    const lastSixChars = supplierItemCodeValue.slice(-6);
-    const newConfirmSupplierItemCode = companyCode?.codeName
-      ? `${companyCode.codeName} ${lastSixChars}`
-      : lastSixChars;
-    if (onChange) {
-      onChange("supplierItemCode", supplierItemCodeValue);
-      onChange("confirmSupplierItemCode", newConfirmSupplierItemCode);
-    }
-  };
-
   // Debounced check function
   const debouncedCheck = useCallback(
     debounce(async (value: string) => {
@@ -517,23 +485,8 @@ const ProductDefaultInputs = ({
     if (isCreateMode) {
       productStore.updateProductForm("supplierItemCode", newValue);
       debouncedCheck(newValue);
-    } else {
-      updateConfirmSupplierItemCode(newValue, product?.companyCodeId);
     }
   };
-
-  useEffect(() => {
-    if (
-      !isCreateMode &&
-      product?.supplierItemCode !== undefined &&
-      product?.companyCodeId !== undefined
-    ) {
-      updateConfirmSupplierItemCode(
-        product.supplierItemCode,
-        product.companyCodeId
-      );
-    }
-  }, [product?.supplierItemCode, product?.companyCodeId, isCreateMode]);
 
   // Cleanup debounce on unmount
   useEffect(() => {
@@ -583,166 +536,62 @@ const ProductDefaultInputs = ({
     // Các trường hợp khác KHÔNG gọi getNextOrderNumberAuto!
   }, [isCreateMode, productStore.productForm.supplierId]);
 
-  // useEffect riêng cho pattern và supplier - cập nhật autoBarCode, productCode và displayWebsiteName, không đổi orderNumber
-  useEffect(() => {
-    if (!isCreateMode && product?.brickPatternId && product?.supplierId) {
-      const supplier = productSupplierList.find(
-        (x) => x.id === product.supplierId
-      );
-      const pattern = productPatternList.find(
-        (x) => x.id === product.brickPatternId
-      );
-
-      if (supplier?.supplierShortCode) {
-        // Cập nhật autoBarCode với orderNumber hiện tại (không tăng)
-        const currentOrderNumber = product.productOrderNumber || "";
-        const patternCode = pattern?.shortCode || "";
-        const newBarCode = `${supplier.supplierShortCode}.${currentOrderNumber}${patternCode}`;
-        
-        // Cập nhật productCode
-        const newProductCode = `${supplier.supplierShortCode}.${currentOrderNumber}`;
-        
-        if (onChange) {
-          onChange("autoBarCode", newBarCode);
-          onChange("confirmAutoBarCode", newBarCode);
-          onChange("productCode", newProductCode);
-          onChange("confirmProductCode", newProductCode);
-        }
-
-        // Cập nhật displayWebsiteName chỉ khi chưa được chỉnh sửa thủ công
-        if (!isDisplayWebsiteNameManuallyEdited) {
-          updateDisplayWebsiteName(currentOrderNumber);
-        }
-      }
-    }
-  }, [isCreateMode ? null : product?.brickPatternId, isCreateMode ? null : product?.supplierId]);
-
-  // useEffect để cập nhật các trường liên quan khi productOrderNumber thay đổi trong edit mode
-  useEffect(() => {
-    if (!isCreateMode && product?.supplierId && product?.brickPatternId && product?.productOrderNumber !== undefined) {
-      const supplier = productSupplierList.find(
-        (x) => x.id === product.supplierId
-      );
-      const pattern = productPatternList.find(
-        (x) => x.id === product.brickPatternId
-      );
-
-      if (supplier?.supplierShortCode) {
-        const currentOrderNumber = product.productOrderNumber;
-        const patternCode = pattern?.shortCode || "";
-        const newBarCode = `${supplier.supplierShortCode}.${currentOrderNumber}${patternCode}`;
-        const newProductCode = `${supplier.supplierShortCode}.${currentOrderNumber}`;
-        
-        if (onChange) {
-          onChange("autoBarCode", newBarCode);
-          onChange("confirmAutoBarCode", newBarCode);
-          onChange("productCode", newProductCode);
-          onChange("confirmProductCode", newProductCode);
-        }
-
-        // Cập nhật displayWebsiteName chỉ khi chưa được chỉnh sửa thủ công
-        if (!isDisplayWebsiteNameManuallyEdited) {
-          updateDisplayWebsiteName(currentOrderNumber);
-        }
-      }
-    }
-  }, [
-    isCreateMode ? null : product?.productOrderNumber,
-    isCreateMode ? null : product?.supplierId,
-    isCreateMode ? null : product?.brickPatternId,
-    productSupplierList,
-    productPatternList,
-    onChange
-  ]);
-
-  // useEffect để cập nhật các trường liên quan khi component mount trong edit mode
+  // Đồng bộ Barcode, ProductCode và Tên Website khi các trường liên quan thay đổi trong edit mode
   useEffect(() => {
     if (!isCreateMode && product && onChange) {
-      // Cập nhật các trường liên quan khi component mount
-      if (product.supplierId && product.brickPatternId && product.productOrderNumber !== undefined) {
-        const supplier = productSupplierList.find(
-          (x) => x.id === product.supplierId
-        );
-        const pattern = productPatternList.find(
-          (x) => x.id === product.brickPatternId
-        );
-
-        if (supplier?.supplierShortCode) {
-          const currentOrderNumber = product.productOrderNumber;
-          const patternCode = pattern?.shortCode || "";
-          const newBarCode = `${supplier.supplierShortCode}.${currentOrderNumber}${patternCode}`;
-          const newProductCode = `${supplier.supplierShortCode}.${currentOrderNumber}`;
-          
-          onChange("autoBarCode", newBarCode);
-          onChange("confirmAutoBarCode", newBarCode);
-          onChange("productCode", newProductCode);
-          onChange("confirmProductCode", newProductCode);
-        }
-      }
-    }
-  }, [isCreateMode, product, onChange, productSupplierList, productPatternList]);
-
-  // useEffect để đảm bảo cập nhật các trường liên quan khi product thay đổi
-  useEffect(() => {
-    if (!isCreateMode && product && onChange) {
-      // Force update các trường liên quan khi product thay đổi
       const supplier = productSupplierList.find(
         (x) => x.id === product.supplierId
       );
       const pattern = productPatternList.find(
         (x) => x.id === product.brickPatternId
+      );
+      const surface = productSurfaceList.find(
+        (x) => x.id === product.surfaceFeatureId
       );
 
       if (supplier?.supplierShortCode && pattern && product.productOrderNumber !== undefined) {
         const currentOrderNumber = product.productOrderNumber;
         const patternCode = pattern.shortCode || "";
-        const newBarCode = `${supplier.supplierShortCode}.${currentOrderNumber}${patternCode}`;
+        const surfaceCode = surface?.shortCode || "";
+        const newBarCode = `${surfaceCode}.${patternCode}.${supplier.supplierShortCode}.${currentOrderNumber}`;
         const newProductCode = `${supplier.supplierShortCode}.${currentOrderNumber}`;
         
-        // Cập nhật ngay lập tức
-        onChange("autoBarCode", newBarCode);
-        onChange("confirmAutoBarCode", newBarCode);
-        onChange("productCode", newProductCode);
-        onChange("confirmProductCode", newProductCode);
+        if (product.autoBarCode !== newBarCode) {
+          onChange("autoBarCode", newBarCode);
+          onChange("confirmAutoBarCode", newBarCode);
+        }
+        if (product.productCode !== newProductCode) {
+          onChange("productCode", newProductCode);
+          onChange("confirmProductCode", newProductCode);
+        }
+
+        if (!isDisplayWebsiteNameManuallyEdited) {
+          updateDisplayWebsiteName(currentOrderNumber);
+        }
       }
     }
   }, [
     isCreateMode,
     product?.supplierId,
     product?.brickPatternId,
+    product?.surfaceFeatureId,
     product?.productOrderNumber,
-    onChange,
+    product?.autoBarCode,
+    product?.productCode,
+    product?.colorId,
+    product?.brickBodyId,
+    product?.materialId,
+    product?.actualSizeId,
+    isDisplayWebsiteNameManuallyEdited,
     productSupplierList,
-    productPatternList
+    productPatternList,
+    productSurfaceList,
+    productSizeList,
+    productColorList,
+    productBodyColorList,
+    productMaterialList,
+    onChange
   ]);
-
-  // useEffect để force update khi product thay đổi (để đảm bảo không bị ghi đè)
-  useEffect(() => {
-    if (!isCreateMode && product && onChange) {
-      // Force update các trường liên quan khi product thay đổi
-      const supplier = productSupplierList.find(
-        (x) => x.id === product.supplierId
-      );
-      const pattern = productPatternList.find(
-        (x) => x.id === product.brickPatternId
-      );
-
-      if (supplier?.supplierShortCode && pattern && product.productOrderNumber !== undefined) {
-        const currentOrderNumber = product.productOrderNumber;
-        const patternCode = pattern.shortCode || "";
-        const newBarCode = `${supplier.supplierShortCode}.${currentOrderNumber}${patternCode}`;
-        const newProductCode = `${supplier.supplierShortCode}.${currentOrderNumber}`;
-        
-        // Cập nhật ngay lập tức với setTimeout để đảm bảo được thực thi sau khi state đã được cập nhật
-        setTimeout(() => {
-          onChange("autoBarCode", newBarCode);
-          onChange("confirmAutoBarCode", newBarCode);
-          onChange("productCode", newProductCode);
-          onChange("confirmProductCode", newProductCode);
-        }, 0);
-      }
-    }
-  }, [product]);
 
   // Hàm helper để cập nhật displayWebsiteName
   const updateDisplayWebsiteName = (
@@ -782,12 +631,15 @@ const ProductDefaultInputs = ({
 
       if (pattern?.name && supplier?.supplierShortCode) {
         const patternCode = pattern.shortCode || "";
-        const autoBarCode = `${supplier.supplierShortCode}.${orderNumber}${patternCode}`;
+        const surfaceCode = surfaceFeature?.shortCode || "";
+        const autoBarCode = `${surfaceCode}.${patternCode}.${supplier.supplierShortCode}.${orderNumber}`;
         const newWebsiteProductName =
           `${autoBarCode} - ${actualSize} - ${pattern.name} ${color?.name} ${surfaceFeature?.name} ${material?.name} ${bodyColor?.name}`.trim();
 
         if (onChange && !isDisplayWebsiteNameManuallyEdited) {
-          onChange("displayWebsiteName", newWebsiteProductName);
+          if (product.displayWebsiteName !== newWebsiteProductName) {
+            onChange("displayWebsiteName", newWebsiteProductName);
+          }
         }
       }
     }
@@ -888,7 +740,11 @@ const ProductDefaultInputs = ({
           newSapoProductName += ` - ${factoryShortName}`;
         }
         
-        if (onChange) onChange("sapoName", newSapoProductName);
+        if (onChange) {
+          if (product.sapoName !== newSapoProductName) {
+            onChange("sapoName", newSapoProductName);
+          }
+        }
       }
     }
   };
@@ -983,7 +839,11 @@ const ProductDefaultInputs = ({
         surfaceList: productSurfaceList,
       });
       setSku(newSku);
-      if (onChange) onChange("confirmSupplierItemCode", newSku);
+      if (onChange) {
+        if (product.confirmSupplierItemCode !== newSku) {
+          onChange("confirmSupplierItemCode", newSku);
+        }
+      }
     }
   }, [
     isCreateMode,
@@ -1169,6 +1029,7 @@ const ProductDefaultInputs = ({
                 id="input"
                 placeholder="Tên SAPO"
                 value={product?.sapoName || sapo || ""}
+                disabled = {isCreateMode === true}
                 onChange={handleWebsiteProductNameChange}
               />
             </div>
@@ -1180,6 +1041,7 @@ const ProductDefaultInputs = ({
                 placeholder="Ô tự động điền"
                 className="text-red-500 w-full"
                 value={product?.displayWebsiteName || websiteProductName || ""}
+                disabled = {isCreateMode === true}
                 onChange={handleWebsiteProductNameChange}
               />
             </div>

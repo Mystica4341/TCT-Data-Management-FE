@@ -8,6 +8,7 @@ import ReactSelect from "react-select";
 import { observer } from "mobx-react-lite";
 import { ProductDetail } from "../../../../app/models/product/product.model.ts";
 import { useTheme } from "../../../../app/context/ThemeContext.tsx";
+
 interface Option {
   value: number;
   label: string;
@@ -27,9 +28,13 @@ const PatternGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
 
   // Đồng bộ shortCode khi đổi pattern ở edit mode
   useEffect(() => {
-    if (!isCreateMode && product?.brickPatternId) {
-      const pattern = productPatternList.find(x => x.id === product.brickPatternId);
-      setSelectedPatternShortCode(pattern?.shortCode || "");
+    if (!isCreateMode) {
+      if (product?.brickPatternId) {
+        const pattern = productPatternList.find(x => x.id === product.brickPatternId);
+        setSelectedPatternShortCode(pattern?.shortCode || "");
+      } else {
+        setSelectedPatternShortCode("");
+      }
     }
   }, [isCreateMode, product?.brickPatternId, productPatternList]);
 
@@ -44,10 +49,10 @@ const PatternGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
   );
 
   return (
-    <ComponentCard title="Danh mục (hệ vân/ thiết bị vệ sinh)">
+    <ComponentCard title="Hệ vân">
       <div className="space-y-6">
         <div>
-          <ProductLabel>Tên danh mục</ProductLabel>
+          <ProductLabel>Tên hệ vân</ProductLabel>
           <div className="relative">
             <ReactSelect
               options={patternOptions}
@@ -64,9 +69,14 @@ const PatternGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                 if (onChange) {
                   onChange("brickPatternId", selected.value);
                 } else if (isCreateMode) {
-                  productStore.updateProductForm("brickPatternId", selected.value);
+                  productStore.updateProductForm(
+                    "brickPatternId",
+                    selected.value,
+                  );
                 }
-                const pattern = productPatternList.find(x => x.id === selected.value);
+                const pattern = productPatternList.find(
+                  (x) => x.id === selected.value,
+                );
                 setSelectedPatternShortCode(pattern?.shortCode || "");
               }}
               value={selectedPattern}
@@ -82,59 +92,66 @@ const PatternGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                   height: "44px",
                   fontFamily: "Roboto, sans-serif",
                   fontSize: "14px",
-                  backgroundColor: theme === 'dark' ? '#131827' : base.backgroundColor,
-                  color: theme === 'dark' ? '#fff' : base.color,
-                  borderColor: theme === 'dark' ? '#384052' : base.borderColor,
-                  border: theme === 'dark' ? '1px solid #384052' : '1px solid #e5e7eb',
+                  backgroundColor:
+                    theme === "dark" ? "#131827" : base.backgroundColor,
+                  color: theme === "dark" ? "#fff" : base.color,
+                  borderColor: theme === "dark" ? "#384052" : base.borderColor,
+                  border:
+                    theme === "dark"
+                      ? "1px solid #384052"
+                      : "1px solid #e5e7eb",
                 }),
                 valueContainer: (base) => ({
                   ...base,
                   height: "44px",
                   padding: "0 8px",
-                  backgroundColor: theme === 'dark' ? '#131827' : base.backgroundColor,
-                  color: theme === 'dark' ? '#fff' : base.color,
+                  backgroundColor:
+                    theme === "dark" ? "#131827" : base.backgroundColor,
+                  color: theme === "dark" ? "#fff" : base.color,
                 }),
                 indicatorsContainer: (base) => ({
                   ...base,
                   height: "44px",
-                  backgroundColor: theme === 'dark' ? '#131827' : base.backgroundColor,
+                  backgroundColor:
+                    theme === "dark" ? "#131827" : base.backgroundColor,
                 }),
                 option: (base, state) => ({
                   ...base,
                   fontFamily: "Roboto, sans-serif",
                   backgroundColor: state.isFocused
-                    ? (theme === 'dark' ? '#23232b' : '#f3f4f6')
-                    : (theme === 'dark' ? '#131827' : 'white'),
-                  color: theme === 'dark' ? '#fff' : 'black',
+                    ? theme === "dark"
+                      ? "#23232b"
+                      : "#f3f4f6"
+                    : theme === "dark"
+                      ? "#131827"
+                      : "white",
+                  color: theme === "dark" ? "#fff" : "black",
                 }),
                 menu: (base) => ({
                   ...base,
-                  backgroundColor: theme === 'dark' ? '#131827' : base.backgroundColor,
-                  color: theme === 'dark' ? '#fff' : base.color,
+                  backgroundColor:
+                    theme === "dark" ? "#131827" : base.backgroundColor,
+                  color: theme === "dark" ? "#fff" : base.color,
                 }),
                 singleValue: (base) => ({
                   ...base,
-                  color: theme === 'dark' ? '#fff' : base.color,
+                  color: theme === "dark" ? "#fff" : base.color,
                 }),
                 input: (base) => ({
                   ...base,
-                  color: theme === 'dark' ? '#fff' : base.color,
+                  color: theme === "dark" ? "#fff" : base.color,
                 }),
               }}
             />
           </div>
         </div>
         <div>
-          <ProductLabel>Mã ngắn danh mục</ProductLabel>
+          <ProductLabel>Mã ngắn hệ vân</ProductLabel>
           <div className="relative">
             <Input
               placeholder="Tự động điền"
               disabled
-              value={
-                isCreateMode
-                  ? selectedPatternShortCode
-                  : product?.brickPatternShortName || ""
-              }
+              value={selectedPatternShortCode}
             />
           </div>
         </div>

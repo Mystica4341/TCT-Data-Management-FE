@@ -1,9 +1,12 @@
 import ComponentCard from "../../../common/ComponentCard.tsx";
+import ProductLabel from "../ProductLabel.tsx";
+import Input from "../input/product/ProductInputField.tsx";
 import { useStore } from "../../../../app/stores/store.ts";
 import ReactSelect from "react-select";
 import { observer } from "mobx-react-lite";
 import { ProductDetail } from "../../../../app/models/product/product.model.ts";
 import { useTheme } from "../../../../app/context/ThemeContext.tsx";
+import { useState, useEffect } from "react";
 interface Option {
   value: number;
   label: string;
@@ -19,15 +22,31 @@ const SurfaceGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
   const { productStore, surfaceStore } = useStore();
   const { productSurfaceList } = surfaceStore;
   const { theme } = useTheme();
+  const [selectedSurfaceShortCode, setSelectedSurfaceShortCode] = useState<string>("");
+
+  // Đồng bộ shortCode khi đổi surface ở edit mode
+  useEffect(() => {
+    if (!isCreateMode) {
+      if (product?.surfaceFeatureId) {
+        const surface = productSurfaceList.find(x => x.id === product.surfaceFeatureId);
+        setSelectedSurfaceShortCode(surface?.shortCode || "");
+      } else {
+        setSelectedSurfaceShortCode("");
+      }
+    }
+  }, [isCreateMode, product?.surfaceFeatureId, productSurfaceList]);
+
   // Mapping list
   const surfaceOptions: Option[] = productSurfaceList.map((surface) => ({
     value: surface.id,
     label: surface.name,
+    // shortCode: surface.shortCode,
   }));
 
   const selectedSurface = surfaceOptions.find(
-    (option) => option.value === product?.surfaceFeatureId
+    (option) => option.value === (isCreateMode ? productStore.productForm.surfaceFeatureId : product?.surfaceFeatureId)
   );
+
   return (
     <ComponentCard title="Bề mặt">
       <div className="space-y-6">
@@ -43,6 +62,7 @@ const SurfaceGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                   } else if (isCreateMode) {
                     productStore.updateProductForm("surfaceFeatureId", null);
                   }
+                  setSelectedSurfaceShortCode("");
                   return;
                 }
 
@@ -51,9 +71,13 @@ const SurfaceGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                 } else if (isCreateMode) {
                   productStore.updateProductForm(
                     "surfaceFeatureId",
-                    selected.value
+                    selected.value,
                   );
                 }
+                const surface = productSurfaceList.find(
+                  (x) => x.id === selected.value,
+                );
+                setSelectedSurfaceShortCode(surface?.shortCode || "");
               }}
               placeholder={"Chọn bề mặt..."}
               noOptionsMessage={() => "Không có bề mặt"}
@@ -95,8 +119,8 @@ const SurfaceGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                       ? "#23232b"
                       : "#f3f4f6"
                     : theme === "dark"
-                    ? "#131827"
-                    : "white",
+                      ? "#131827"
+                      : "white",
                   color: theme === "dark" ? "#fff" : "black",
                 }),
                 menu: (base) => ({
@@ -114,6 +138,16 @@ const SurfaceGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                   color: theme === "dark" ? "#fff" : base.color,
                 }),
               }}
+            />
+          </div>
+        </div>
+        <div>
+          <ProductLabel>Mã ngắn bề mặt</ProductLabel>
+          <div className="relative">
+            <Input
+              placeholder="Tự động điền"
+              disabled
+              value={selectedSurfaceShortCode}
             />
           </div>
         </div>

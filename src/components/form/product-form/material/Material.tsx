@@ -1,4 +1,7 @@
 import ComponentCard from "../../../common/ComponentCard.tsx";
+import ProductLabel from "../ProductLabel.tsx";
+import Input from "../input/product/ProductInputField.tsx";
+import { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../../../app/stores/store.ts";
 import ReactSelect from "react-select";
@@ -20,6 +23,19 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
   const { theme } = useTheme();
   const { materialStore, productStore } = useStore();
   const { productMaterialList } = materialStore;
+  const [selectedDescription, setSelectedDescription] = useState<string>("");
+
+  // Đồng bộ description khi đổi material ở edit mode
+  useEffect(() => {
+    if (!isCreateMode) {
+      if (product?.materialId) {
+        const material = productMaterialList.find(x => x.id === product.materialId);
+        setSelectedDescription(material?.description || "");
+      } else {
+        setSelectedDescription("");
+      }
+    }
+  }, [isCreateMode, product?.materialId, productMaterialList]);
 
   // Mapping list
   const materialOptions: Option[] = productMaterialList.map((material) => ({
@@ -28,7 +44,7 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
   }));
 
   const selectedMaterial = materialOptions.find(
-    (option) => option.value === product?.materialId
+    (option) => option.value === (isCreateMode ? productStore.productForm.materialId : product?.materialId)
   );
 
   return (
@@ -47,6 +63,7 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                   } else if (isCreateMode) {
                     productStore.updateProductForm("materialId", null);
                   }
+                  setSelectedDescription("");
                   return;
                 }
                 if (onChange) {
@@ -54,6 +71,8 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                 } else if (isCreateMode) {
                   productStore.updateProductForm("materialId", selected.value);
                 }
+                const material = productMaterialList.find(x => x.id === selected.value);
+                setSelectedDescription(material?.description || "");
               }}
               placeholder={"Chọn chất liệu..."}
               styles={{
@@ -94,8 +113,8 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                       ? "#23232b"
                       : "#f3f4f6"
                     : theme === "dark"
-                    ? "#131827"
-                    : "white",
+                      ? "#131827"
+                      : "white",
                   color: theme === "dark" ? "#fff" : "black",
                 }),
                 menu: (base) => ({
@@ -113,6 +132,16 @@ const MaterialGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
                   color: theme === "dark" ? "#fff" : base.color,
                 }),
               }}
+            />
+          </div>
+        </div>
+        <div>
+          <ProductLabel>Mô Tả Chất Liệu</ProductLabel>
+          <div className="relative">
+            <Input
+              placeholder="Tự động điền"
+              disabled
+              value={selectedDescription}
             />
           </div>
         </div>
