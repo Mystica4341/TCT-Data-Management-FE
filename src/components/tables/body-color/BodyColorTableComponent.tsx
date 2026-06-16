@@ -63,7 +63,7 @@ const BodyColorTableComponent = ({ data }: BodyColorTableComponentProps) => {
       maxWidth: '5px'
     },
     {
-      name: 'Thân gạch',
+      name: 'Màu thân gạch',
       selector: row => row.name,
       sortable: true,
     },

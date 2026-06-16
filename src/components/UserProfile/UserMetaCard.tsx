@@ -46,7 +46,7 @@ const UserMetaCard = () => {
           <div className="flex flex-col items-center w-full gap-6 xl:flex-row">
             <div className="relative group w-20 h-20 overflow-hidden border border-gray-200 rounded-full dark:border-gray-800">
               <img
-                src={user?.avatarUrl || "/images/user/avatar_hieuseo.jpg"}
+                src={user?.avatarUrl || "/images/user/avatar_default.jpg"}
                 alt="user"
                 className="w-full h-full object-cover"
               />

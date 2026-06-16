@@ -31,7 +31,7 @@ const UserDropdown = () => {
       >
         <span className="mr-3 overflow-hidden rounded-full h-11 w-11">
           <img
-            src={currentUser?.avatarUrl || "/images/user/avatar_hieuseo.jpg"}
+            src={currentUser?.avatarUrl || "/images/user/avatar_default.jpg"}
             alt="User"
           />
         </span>
