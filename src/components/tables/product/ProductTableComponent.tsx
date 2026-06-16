@@ -303,7 +303,7 @@ const ProductTableComponent = ({
           row.uploadWebsiteStatus === "Uploaded";
         return isUploaded ? (
           <a
-            href={`https://ankhanhhouse.com/san-pham/${row.confirmAutoBarCode}`}
+            href={`https://tcthomemart.com/san-pham/${row.confirmAutoBarCode}`}
             target="_blank"
             rel="noopener noreferrer"
           >

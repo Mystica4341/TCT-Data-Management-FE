@@ -10,7 +10,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle, isUploaded }) =>
     <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
       {isUploaded ? (
       <a
-        href={`https://ankhanhhouse.com/san-pham/${pageTitle.toLowerCase()}`}
+        href={`https://tcthomemart.com/san-pham/${pageTitle.toLowerCase()}`}
         className="text-xl font-semibold text-gray-800 dark:text-white/90 underline"
         x-text="pageName"
         target="_blank"

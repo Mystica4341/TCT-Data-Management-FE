@@ -50,7 +50,7 @@ const StrategyProductDetail = () => {
   return (
     <div>
       <PageMeta
-        title="An Khánh Data Management"
+        title="TCT Homemart Data Management"
         description={"Sản phẩm " + strategyProductDetail.autoBarcode}
       />
       <span>
