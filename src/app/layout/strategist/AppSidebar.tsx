@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
       { icon: <ChevronRightIcon />, name: 'Bề mặt', path: '/surfaces', pro: false },
       { icon: <ChevronRightIcon />, name: 'Chất liệu', path: '/materials', pro: false },
       { icon: <ChevronRightIcon />, name: 'Màu sắc', path: '/colors', pro: false },
-      { icon: <ChevronRightIcon />, name: 'Màu thân gạch', path: '/body-colors', pro: false },
+      { icon: <ChevronRightIcon />, name: 'Màu xương gạch', path: '/body-colors', pro: false },
       { icon: <ChevronRightIcon />, name: 'Xuất xứ', path: '/origins', pro: false },
       { icon: <ChevronRightIcon />, name: 'Kích thước', path: '/sizes', pro: false },
       { icon: <ChevronRightIcon />, name: 'Mã công ty', path: '/company-codes', pro: false },

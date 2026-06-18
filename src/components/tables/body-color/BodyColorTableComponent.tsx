@@ -63,7 +63,7 @@ const BodyColorTableComponent = ({ data }: BodyColorTableComponentProps) => {
       maxWidth: '5px'
     },
     {
-      name: 'Màu thân gạch',
+      name: 'Màu xương gạch',
       selector: row => row.name,
       sortable: true,
     },
@@ -118,11 +118,11 @@ const BodyColorTableComponent = ({ data }: BodyColorTableComponentProps) => {
     <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="max-w-2xl">
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-            Chi tiết màu sắc thân gạch
+            Chi tiết màu sắc xương gạch
           </h2>
           <div className="space-y-4">
             <div>
-              <ProductLabel className="block text-sm font-medium mb-1">Màu sắc thân gạch</ProductLabel>
+              <ProductLabel className="block text-sm font-medium mb-1">Màu sắc xương gạch</ProductLabel>
               <ProductInputField
                 value={bodyColorStore.bodyColorFormUpdate.name}
                 onChange={(e) => bodyColorStore.updateBodyColorFormUpdate('name', e.target.value)}

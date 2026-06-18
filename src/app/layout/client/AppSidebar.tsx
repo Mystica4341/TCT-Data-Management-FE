@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
       },
       {
         icon: <ChevronRightIcon />,
-        name: "Thân gạch",
+        name: "Xương gạch",
         path: "/body-colors",
         pro: false,
       },

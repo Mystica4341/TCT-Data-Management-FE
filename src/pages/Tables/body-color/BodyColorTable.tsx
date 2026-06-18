@@ -56,14 +56,14 @@ function BodyColorTable() {
     <>
       <PageMeta
         title="TCT Homemart Data Management"
-        description="Đây là bảng màu sắc thân gạch của website TCT Homemart"
+        description="Đây là bảng màu sắc xương gạch của website TCT Homemart"
       />
-      <PageBreadcrumb pageTitle="Màu thân gạch" />
+      <PageBreadcrumb pageTitle="Màu xương gạch" />
       <div className="space-y-6">
         <TableComponentCard
-          title="Bảng màu thân gạch"
+          title="Bảng màu xương gạch"
           addButtonLink={"add-body-color"}
-          addButtonText={"Tạo màu thân gạch"}
+          addButtonText={"Tạo màu xương gạch"}
           useModal={true}
           isModalOpen={isModalOpen}
           modalClose={handleModalClose}
@@ -72,12 +72,12 @@ function BodyColorTable() {
           className="text-white"
           modalContent={
             <div>
-              <h1 className="text-2xl font-bold mb-2 text-black">Tạo màu thân gạch</h1>
+              <h1 className="text-2xl font-bold mb-2 text-black">Tạo màu xương gạch</h1>
               <div className="grid grid-cols-2 gap-4 space-y-2">
                 <div className="col-span-2">
-                  <ProductLabel>Tên màu thân gạch</ProductLabel>
+                  <ProductLabel>Tên màu xương gạch</ProductLabel>
                   <Input
-                    placeholder="Nhập tên màu thân gạch"
+                    placeholder="Nhập tên màu xương gạch"
                     value={bodyColorStore.bodyColorForm.name}
                     onChange={(e) =>
                       bodyColorStore.updateBodyColorForm("name", e.target.value.toUpperCase())
@@ -117,7 +117,7 @@ function BodyColorTable() {
                       Đang xử lý...
                     </>
                   ) : (
-                    "Tạo màu thân gạch"
+                    "Tạo màu xương gạch"
                   )}
                 </Button>
               </div>

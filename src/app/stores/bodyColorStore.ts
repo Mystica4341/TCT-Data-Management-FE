@@ -105,7 +105,7 @@ export default class BodyColorStore extends BaseStore {
         this.loading = false;
       });
       console.error("Failed to load body color", error);
-      toast.error("Lỗi khi tải dữ liệu màu sắc thân gạch.");
+      toast.error("Lỗi khi tải dữ liệu màu sắc xương gạch.");
     }
   };
 
@@ -128,7 +128,7 @@ export default class BodyColorStore extends BaseStore {
         this.bodyColorForm
       );
       if (result.success) {
-        toast.success("Thêm màu sắc thân gạch thành công.");
+        toast.success("Thêm màu sắc xương gạch thành công.");
         this.loadAllBodyColors();
         this.resetBodyColorForm();
         const newItem: ProductBodyColorDto = {
@@ -139,13 +139,13 @@ export default class BodyColorStore extends BaseStore {
         this.loading = false;
         return true;
       } else {
-        toast.error("Lỗi khi thêm màu sắc thân gạch.");
+        toast.error("Lỗi khi thêm màu sắc xương gạch.");
         this.loading = false;
         return false;
       }
     } catch (error) {
       console.error("Failed to add color", error);
-      toast.error("Lỗi khi thêm màu sắc thân gạch.");
+      toast.error("Lỗi khi thêm màu sắc xương gạch.");
     } finally {
       this.loading = false;
     }
@@ -156,7 +156,7 @@ export default class BodyColorStore extends BaseStore {
     try {
       const result = await agent.ProductBodyColor.updateBodyColor(id, this.bodyColorFormUpdate);
       if (result.success) {
-        toast.success("Cập nhật màu sắc thân gạch thành công.");
+        toast.success("Cập nhật màu sắc xương gạch thành công.");
         this.loadAllBodyColors();
         this.resetBodyColorForm();
         const newItem: ProductBodyColorDto = {

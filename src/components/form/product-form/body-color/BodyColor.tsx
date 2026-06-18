@@ -34,7 +34,7 @@ const BodyColorGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
         <ReactSelect
           options={bodyColorOptions}
           value={selectedBodyColor}
-          noOptionsMessage={() => "Không có màu thân gạch"}
+          noOptionsMessage={() => "Không có màu xương gạch"}
           onChange={(selected) => {
             if (!selected) {
               if (onChange) {
@@ -52,7 +52,7 @@ const BodyColorGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
             }
           }}
           isClearable={true}
-          placeholder={"Chọn màu thân gạch..."}
+          placeholder={"Chọn màu xương gạch..."}
           styles={{
             control: (base) => ({
               ...base,

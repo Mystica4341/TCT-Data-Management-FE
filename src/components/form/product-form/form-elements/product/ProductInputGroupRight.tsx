@@ -229,7 +229,7 @@ const ProductInputGroupRight = ({ product, isCreateMode, onChange }: ProductProp
         <OriginGroup product={product} isCreateMode={isCreateMode} onChange={onChange} />
       </div>
       <div>
-        <ProductLabel htmlFor="input">Màu thân gạch</ProductLabel>
+        <ProductLabel htmlFor="input">Màu xương gạch</ProductLabel>
         <BodyColorGroup product={product} isCreateMode={isCreateMode} onChange={onChange} />
       </div>
       <div>
