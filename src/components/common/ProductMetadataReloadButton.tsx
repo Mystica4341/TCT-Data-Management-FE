@@ -7,8 +7,29 @@ export const ProductMetadataReloadButton: React.FC = () => {
 
   const handleRefresh = async () => {
     try {
+      
+      // Lặp qua localStorage và xóa bộ nhớ đệm nhưng giữ lại các key cần thiết
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        if (key) {
+          const lowerKey = key.toLowerCase();
+          
+          // Giữ lại jwt, jwt_session_date, theme và các key động bắt đầu bằng birthday-modal-shown
+          const isAuthRelated = lowerKey.includes('jwt') || lowerKey.includes('session');
+          const isThemeRelated = lowerKey.includes('theme');
+          const isBirthdayModal = lowerKey.startsWith('birthday-modal-shown');
+          
+          if (!isAuthRelated && !isThemeRelated && !isBirthdayModal) {
+            localStorage.removeItem(key);
+          }
+        }
+      }
+
       // Force refresh từ server
       await refreshMetadata(true);
+      
+      // Tải lại trang để làm mới hoàn toàn các store đang lưu dữ liệu cũ trong RAM
+      window.location.reload();
     } catch (error) {
       console.error('Error refreshing metadata:', error);
     }
