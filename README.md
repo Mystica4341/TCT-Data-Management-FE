@@ -52,11 +52,23 @@ git clone https://github.com/Mystica4341/TCT-Data-Management-FE.git
    > Dùng  `--legacy-peer-deps` flag, nếu bạn gặp vấn để khi clone.
 
 2. Khởi động server development:
+
    ```bash
    npm run dev
    # or
    yarn dev
    ```
+
+### Host cho cùng local cùng mạng xài
+1. Cấu hình đường dẫn file .env ```{http://Ipv4 của máy bạn:{Port của Backend}}``` để call API đến BE
+2. Cấu hình lại file agent.ts
+1. Build Fe bằng ```npm run dev -- --host```
+
+### Một số câu lệnh
+1. dotnet ef database drop ```xóa database```
+2. dotnet ef database update ```update lại database```
+3. docker compose -up ```khởi động docker```
+4. docker compose -down ```dừng docker```
 
 ## Change Log
 ### Version 1.0

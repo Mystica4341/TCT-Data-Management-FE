@@ -172,7 +172,7 @@ export default class SurfaceStore extends BaseStore {
           shortCode: this.surfaceFormUpdate.shortCode,
           description: this.surfaceFormUpdate.description
         };
-        this.addItemToMetadata(updatedItem);
+        this.updateItemInMetadata(updatedItem);
         return true;
       }
     } catch (error) {
@@ -225,6 +225,16 @@ export default class SurfaceStore extends BaseStore {
     const currentMetadata = OfflineStorage.getMetadata();
     if (currentMetadata) {
       currentMetadata.productSurfaceDtos.push(newItem);
+      OfflineStorage.saveMetadata(currentMetadata);
+    }
+  }
+
+  private updateItemInMetadata = (updatedItem: ProductSurfaceDto) => {
+    const currentMetadata = OfflineStorage.getMetadata();
+    if (currentMetadata) {
+      currentMetadata.productSurfaceDtos = currentMetadata.productSurfaceDtos.map(
+        item => item.id === updatedItem.id ? updatedItem : item
+      );
       OfflineStorage.saveMetadata(currentMetadata);
     }
   }

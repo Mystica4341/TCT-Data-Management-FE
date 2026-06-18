@@ -225,13 +225,18 @@ const responseBody = <T>(
 axios.interceptors.request.use((config) => {
   const token = store.commonStore.token;
   if (token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+  // config for ngrok to skip browser warning
   // config.headers["ngrok-skip-browser-warning"] = "true";
   return config;
+}, (error) => {
+  return Promise.reject(error);
 });
 
 const requests = {
-  get: <T>(url: string): Promise<ApiResponseModel<T>> =>
-    axios.get<ApiResponseModel<T>>(url).then(responseBody),
+  get: <T>(url: string): Promise<ApiResponseModel<T>> => {
+    const separator = url.includes("?") ? "&" : "?";
+    return axios.get<ApiResponseModel<T>>(`${url}${separator}_t=${new Date().getTime()}`).then(responseBody);
+  },
   post: <T>(url: string, body: object): Promise<ApiResponseModel<T>> =>
     axios.post<ApiResponseModel<T>>(url, body).then(responseBody),
   put: <T>(url: string, body: object): Promise<ApiResponseModel<T>> =>

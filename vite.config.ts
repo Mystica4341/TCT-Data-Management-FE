@@ -15,4 +15,8 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    // Thêm dòng này để cho phép tất cả các tên miền development truy cập
+    allowedHosts: true,
+  },
 });

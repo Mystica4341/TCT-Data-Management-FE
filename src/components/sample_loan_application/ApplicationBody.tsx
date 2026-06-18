@@ -186,7 +186,7 @@ const ApplicationBody = () => {
                     <div className="space-y-4">
                         <Checkbox id="vanChuyen5" checked={phanLoaiVanChuyen.akBookShipCod} onChange={(checked) => setPhanLoaiVanChuyen({...phanLoaiVanChuyen, akBookShipCod: checked})} label="TCT book ship - ship trực tiếp (COD)" description="Vui lòng note tên người thanh toán vào phần địa chỉ giao hàng"/>
                         <Checkbox id="vanChuyen6" checked={phanLoaiVanChuyen.akBookShipCongNo} onChange={(checked) => setPhanLoaiVanChuyen({...phanLoaiVanChuyen, akBookShipCongNo: checked})} label="TCT book ship - Tiền ship đưa vào công nợ" />
-                        <Checkbox id="vanChuyen7" checked={phanLoaiVanChuyen.akBookShipTuTra} onChange={(checked) => setPhanLoaiVanChuyen({...phanLoaiVanChuyen, akBookShipTuTra: checked})} label="TCT book ship - TCT Homemart tự trả ship" description="Gửi kèm bằng chứng duyệt" />
+                        <Checkbox id="vanChuyen7" checked={phanLoaiVanChuyen.akBookShipTuTra} onChange={(checked) => setPhanLoaiVanChuyen({...phanLoaiVanChuyen, akBookShipTuTra: checked})} label="TCT ghép chuyến vận chuyển về kho" description="Gửi kèm bằng chứng duyệt" />
                     </div>
                 </div>
             </div>

@@ -59,6 +59,7 @@ export default class ProductStore {
       runInAction(() => {
         this.bulkUpdateStrategyProductsLoading = false;
         toast.success(result.data);
+        localStorage.removeItem("totalPricedProductsCache");
         // Reload lại danh sách sản phẩm sau khi cập nhật
         this.loadStrategyProducts(
           this.pageSize,
@@ -480,6 +481,8 @@ export default class ProductStore {
       if (response.data) {
         runInAction(() => {
           toast.success(response.data);
+          localStorage.removeItem("totalProductsCache");
+          localStorage.removeItem("totalPricedProductsCache");
           this.resetProductForm();
           this.loadProducts();
         });
@@ -612,6 +615,8 @@ export default class ProductStore {
       if (response.success) {
         runInAction(() => {
           toast.success(`Đã nhập ${response.data} sản phẩm thành công.`);
+          localStorage.removeItem("totalProductsCache");
+          localStorage.removeItem("totalPricedProductsCache");
           this.loadProducts(); // Reload the product list after import
         });
       } else {
@@ -644,6 +649,8 @@ export default class ProductStore {
             ...this.productDetail,
             ...product,
           } as ProductDetail;
+          localStorage.removeItem("totalProductsCache");
+          localStorage.removeItem("totalPricedProductsCache");
           // Chỉ reload danh sách sản phẩm, không reload productDetail
           this.loadProducts();
           this.loading = false;
@@ -853,6 +860,7 @@ export default class ProductStore {
           toast.success(response.data);
           // Sau khi lưu thành công, load lại detail để lấy các giá trị được tính toán từ backend
           this.loadStrategyProductDetail(productId);
+          localStorage.removeItem("totalPricedProductsCache");
           this.loadStrategyProducts(
             this.pageSize,
             this.pageNumber,
@@ -940,6 +948,7 @@ export default class ProductStore {
       const response = await agent.Product.updateBatchProduct(file);
       if (response.success) {
         toast.success(response.data);
+        localStorage.removeItem("totalPricedProductsCache");
         this.loadStrategyProducts(
           this.pageSize,
           this.pageNumber,
@@ -1021,4 +1030,3 @@ export default class ProductStore {
     }
   };
 }
-
