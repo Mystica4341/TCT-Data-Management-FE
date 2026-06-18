@@ -297,10 +297,10 @@ const ProductDefaultInputs = ({
     if (
       productStore.productForm.brickPatternId &&
       productStore.productForm.colorId &&
-      productStore.productForm.materialId &&
       productStore.productForm.surfaceFeatureId &&
       productStore.productForm.originCountryId &&
-      productStore.productForm.companyCodeId
+      productStore.productForm.companyCodeId &&
+      productStore.productForm.actualSizeId
     ) {
       const pattern = productPatternList.find(
         (x) => x.id === productStore.productForm.brickPatternId
@@ -314,9 +314,10 @@ const ProductDefaultInputs = ({
         (x) => x.id === productStore.productForm.colorId
       );
 
-      const material = productMaterialList.find(
-        (x) => x.id === productStore.productForm.materialId
+      const size = productSizeList.find(
+        (x) => x.id === productStore.productForm.actualSizeId
       );
+      const sizeString = size ? `${Number(size.wide) / 10}x${Number(size.length) / 10}` : "";
 
       const surfaceFeature = productSurfaceList.find(
         (x) => x.id === productStore.productForm.surfaceFeatureId
@@ -378,7 +379,7 @@ const ProductDefaultInputs = ({
       if (productNamePart && codeNameResult) {
         const surfaceShortName = getSurfaceShortName(surfaceFeature);
         let newSapoProductName =
-          `${codeNameResult} - ${productNamePart} - ${originCountry?.upperName} - ${material?.shortName} - ${color?.name},${pattern?.shortName},${surfaceShortName}`.trim();
+          `${codeNameResult} - ${productNamePart} - ${originCountry?.upperName} - ${sizeString} - ${color?.name},${pattern?.shortCode},${surfaceShortName}`.trim();
         
         // Logic mới: Kiểm tra supplier có phải nhà máy không qua isFactory field
         if (supplier?.isFactory === true) {
@@ -650,10 +651,10 @@ const ProductDefaultInputs = ({
     if (
       product?.brickPatternId &&
       product?.colorId &&
-      product?.materialId &&
       product?.surfaceFeatureId &&
       product?.originCountryId &&
-      product?.companyCodeId
+      product?.companyCodeId &&
+      product?.actualSizeId
     ) {
       const pattern = productPatternList.find(
         (x) => x.id === product.brickPatternId
@@ -665,9 +666,10 @@ const ProductDefaultInputs = ({
 
       const color = productColorList.find((x) => x.id === product.colorId);
 
-      const material = productMaterialList.find(
-        (x) => x.id === product.materialId
+      const size = productSizeList.find(
+        (x) => x.id === product.actualSizeId
       );
+      const sizeString = size ? `${Number(size.wide) / 10}x${Number(size.length) / 10}` : "";
 
       const surfaceFeature = productSurfaceList.find(
         (x) => x.id === product.surfaceFeatureId
@@ -727,7 +729,7 @@ const ProductDefaultInputs = ({
       if (productNamePart && codeNameResult) {
         const surfaceShortName = getSurfaceShortName(surfaceFeature);
         let newSapoProductName =
-          `${codeNameResult} - ${productNamePart} - ${originCountry?.upperName} - ${material?.shortName} - ${color?.name},${pattern?.shortName},${surfaceShortName}`.trim();
+          `${codeNameResult} - ${productNamePart} - ${originCountry?.upperName} - ${sizeString} - ${color?.name},${pattern?.shortCode},${surfaceShortName}`.trim();
         
         // Logic mới: Kiểm tra supplier có phải nhà máy không qua isFactory field
         if (supplier?.isFactory === true) {
@@ -755,25 +757,29 @@ const ProductDefaultInputs = ({
     supplierId,
     supplierItemCode,
     surfaceFeatureId,
+    brickPatternId,
     productSpecialNote,
     companyCodeList,
     supplierList,
     surfaceList,
+    patternList,
   }: {
     companyCodeId?: number;
     supplierId?: number;
     supplierItemCode?: string;
     surfaceFeatureId?: number;
+    brickPatternId?: number;
     productSpecialNote?: string;
     companyCodeList: any[];
     supplierList: any[];
     surfaceList: any[];
+    patternList: any[];
   }) => {
     const companyCode = companyCodeList.find((x) => x.id === companyCodeId);
     const supplier = supplierList.find((x) => x.id === supplierId);
     const surface = surfaceList.find((x) => x.id === surfaceFeatureId);
-    
-    if (!companyCode || !supplier || !surface) return "";
+    const pattern = patternList.find((x) => x.id === brickPatternId);
+    if (!companyCode || !supplier || !surface || !pattern) return "";
     
     // Xác định phần thứ 3: englishName hoặc 6 ký tự cuối supplierItemCode
     let thirdPart = "";
@@ -790,7 +796,7 @@ const ProductDefaultInputs = ({
     
     if (!thirdPart) return "";
     
-    return `${companyCode.codeName}-${supplier.supplierCombinedCode}-${thirdPart}-${surface.shortCode}`;
+    return `${companyCode.codeName}-${surface.shortCode}-${pattern.shortCode}-${thirdPart}`;
   };
 
   // Tạo state cho SKU nếu cần
@@ -805,10 +811,12 @@ const ProductDefaultInputs = ({
         supplierItemCode: supplierItemCode,
         surfaceFeatureId:
           productStore.productForm.surfaceFeatureId ?? undefined,
+        brickPatternId: productStore.productForm.brickPatternId ?? undefined,
         productSpecialNote: productStore.productForm.productSpecialNote ?? undefined,
         companyCodeList: productCompanyCodeList,
         supplierList: productSupplierList,
         surfaceList: productSurfaceList,
+        patternList: productPatternList,
       });
       setSku(newSku);
       productStore.updateProductForm("confirmSupplierItemCode", newSku);
@@ -819,10 +827,12 @@ const ProductDefaultInputs = ({
     productStore.productForm.supplierId,
     supplierItemCode,
     productStore.productForm.surfaceFeatureId,
+    productStore.productForm.brickPatternId,
     productStore.productForm.productSpecialNote,
     productCompanyCodeList,
     productSupplierList,
     productSurfaceList,
+    productPatternList,
   ]);
 
   // useEffect cho edit mode
@@ -833,10 +843,12 @@ const ProductDefaultInputs = ({
         supplierId: product.supplierId ?? undefined,
         supplierItemCode: product.supplierItemCode,
         surfaceFeatureId: product.surfaceFeatureId ?? undefined,
+        brickPatternId: product.brickPatternId ?? undefined,
         productSpecialNote: product.productSpecialNote ?? undefined,
         companyCodeList: productCompanyCodeList,
         supplierList: productSupplierList,
         surfaceList: productSurfaceList,
+        patternList: productPatternList,
       });
       setSku(newSku);
       if (onChange) {
@@ -851,10 +863,12 @@ const ProductDefaultInputs = ({
     product?.supplierId,
     product?.supplierItemCode,
     product?.surfaceFeatureId,
+    product?.brickPatternId,
     product?.productSpecialNote,
     productCompanyCodeList,
     productSupplierList,
     productSurfaceList,
+    productPatternList,
   ]);
 
   // useEffect để cập nhật tên SAPO khi các trường liên quan thay đổi trong edit mode
@@ -870,6 +884,7 @@ const ProductDefaultInputs = ({
     product?.brickPatternId,
     product?.colorId,
     product?.materialId,
+    product?.actualSizeId,
     product?.surfaceFeatureId,
     product?.originCountryId,
     product?.companyCodeId,
@@ -877,6 +892,7 @@ const ProductDefaultInputs = ({
     productPatternList,
     productColorList,
     productMaterialList,
+    productSizeList,
     productSurfaceList,
     productOriginList,
     productCompanyCodeList,
