@@ -11,7 +11,7 @@ export enum PriceDetermination {
 }
 
 export enum UploadWebsiteStatus {
-  Uploaded = 1,
+  NotUploaded = 1,
   Captured = 2,
   Named = 3,
   ReAdded = 4,

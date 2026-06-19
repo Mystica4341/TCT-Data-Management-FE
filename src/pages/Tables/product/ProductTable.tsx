@@ -10,6 +10,8 @@ import Modal from "../../../components/ui/modal/index.tsx";
 import { ProductSupplierDto } from "../../../app/models/product/productSupplier.model.ts";
 import { ProductSizeDto } from "../../../app/models/product/productSize.model.ts";
 import { useApi } from "../../../hooks/useApi";
+import { AdvancedSearchDto } from "../../../app/models/common/advancedSearch.model.ts";
+import agent from "../../../app/api/agent.ts";
 
 function ProductTable() {
   const { productStore, supplierStore, sizeStore, commonStore } = useStore();
@@ -114,6 +116,35 @@ function ProductTable() {
 
   const handleImportClick = () => {
     fileInputRef.current?.click();
+  };
+
+  // Nhớ import cái object chứa api của bạn, ví dụ: import agent from './agent';
+
+  const handleDownloadExcel = async () => {
+    try {
+      // 1. Gọi API (hàm bạn vừa định nghĩa ở trên)
+      const blobData = await agent.Product.exportProducts();
+
+      // 2. Tạo link tải từ cục Blob
+      const url = window.URL.createObjectURL(blobData);
+      const link = document.createElement("a");
+      link.href = url;
+
+      // 3. Đặt tên file
+      const fileName = `MaGachTongHop_${new Date().toISOString().slice(0, 10)}.xlsx`;
+      link.setAttribute("download", fileName);
+
+      // 4. Kích hoạt tải xuống
+      document.body.appendChild(link);
+      link.click();
+
+      // 5. Dọn dẹp
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Lỗi tải file:", error);
+      // Xử lý thông báo lỗi (toast/alert) cho người dùng ở đây
+    }
   };
 
   const handleFileChange = async (
@@ -274,6 +305,13 @@ function ProductTable() {
                   className="ml-2 h-8 py-5 font-semibold rounded bg-sky-700 hover:bg-sky-800 text-white"
                 >
                   Nhập file
+                </Button>
+                <Button
+                  onClick={handleDownloadExcel}
+                  disabled={false}
+                  className="ml-2 h-8 py-5 font-semibold rounded bg-sky-700 hover:bg-sky-800 text-white"
+                >
+                  Xuất file
                 </Button>
                 <Button
                   onClick={handleAdvancedOpen}

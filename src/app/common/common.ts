@@ -4,12 +4,12 @@ export const appCurrency: string = '₫';
 
 export function uploadWebsiteStatusToVietnamese(status: string | number): string {
   switch (status) {
-    case 'Uploaded':
+    case 'NotUploaded':
     case 1:
-      return 'Đã đăng';
+      return 'Chưa đăng';
     case 'Captured':
     case 2:
-      return 'Đã chụp';
+      return 'Đã chụp ảnh thực tế - không có Map';
     case 'Named':
     case 3:
       return 'Đã đặt tên';
@@ -21,7 +21,7 @@ export function uploadWebsiteStatusToVietnamese(status: string | number): string
       return 'Đã đổi tên NCC';
     case 'NotCaptured':
     case 6:
-      return 'Chưa chụp';
+      return 'Chưa chụp ảnh thực tế - Đã có Map';
     case 'Cancel':
     case 7:
       return 'Đã huỷ';

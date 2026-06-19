@@ -421,6 +421,38 @@ const Product = {
     return requests.post<number>("/products/import", formData);
   },
 
+  exportProducts: async (
+    pageSize?: number,
+    pageNumber?: number,
+    term?: string,
+    supplierId?: number,
+    sizeId?: number,
+    uploadWebsiteStatuses?: UploadWebsiteStatus[],
+    isPriced?: boolean,
+  ): Promise<Blob> => {
+    const filterBody = {
+      term: term,
+      supplierId: supplierId ? [supplierId] : undefined,
+      sizeId: sizeId ? [sizeId] : undefined,
+      uploadWebsiteStatus: uploadWebsiteStatuses,
+      isPriced: isPriced,
+      pageNumber: 1,
+      pageSize: 2147483647,
+    };
+
+    // 1. DÙNG TRỰC TIẾP AXIOS THAY VÌ REQUESTS.POST
+    // Nếu project của bạn có tạo một custom axios instance (ví dụ: const apiClient = axios.create(...)),
+    // hãy thay chữ 'axios' bên dưới bằng tên instance đó để nó tự gắn Token và Base URL.
+    const response = await axios.post<Blob>(
+      "/products/export",
+      filterBody,
+      { responseType: "blob" }, // Axios gốc mặc định hỗ trợ tham số thứ 3 này
+    );
+
+    // 2. Trả về đúng phần data (chính là cục Blob)
+    return response.data;
+  },
+
   getProductMetadata: (): Promise<ApiResponseModel<ProductMetadataDto>> =>
     requests.get<ProductMetadataDto>("/products/product-metadata"),
 
