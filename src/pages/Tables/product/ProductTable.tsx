@@ -10,7 +10,6 @@ import Modal from "../../../components/ui/modal/index.tsx";
 import { ProductSupplierDto } from "../../../app/models/product/productSupplier.model.ts";
 import { ProductSizeDto } from "../../../app/models/product/productSize.model.ts";
 import { useApi } from "../../../hooks/useApi";
-import { AdvancedSearchDto } from "../../../app/models/common/advancedSearch.model.ts";
 import agent from "../../../app/api/agent.ts";
 
 function ProductTable() {

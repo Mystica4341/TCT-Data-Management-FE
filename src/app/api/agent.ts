@@ -422,8 +422,6 @@ const Product = {
   },
 
   exportProducts: async (
-    pageSize?: number,
-    pageNumber?: number,
     term?: string,
     supplierId?: number,
     sizeId?: number,
