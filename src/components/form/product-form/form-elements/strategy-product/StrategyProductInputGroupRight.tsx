@@ -69,7 +69,7 @@ const StrategyProductInputGroupRight = ({
       </div>
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <ProductLabel>Giá còn lại sau KM 1</ProductLabel>
+          <ProductLabel>Giá KM 1 (m2)</ProductLabel>
           <NumericFormat
             value={product?.firstRemainingPriceAfterDiscount ?? ""}
             thousandSeparator
@@ -80,7 +80,7 @@ const StrategyProductInputGroupRight = ({
           />
         </div>
         <div>
-          <ProductLabel>Giá còn lại sau KM 2</ProductLabel>
+          <ProductLabel>Giá KM 2 (m2)</ProductLabel>
           <NumericFormat
             value={product?.secondRemainingPriceAfterDiscount ?? ""}
             thousandSeparator
@@ -93,7 +93,7 @@ const StrategyProductInputGroupRight = ({
       </div>
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <ProductLabel htmlFor="input">Chính sách 1 (%)</ProductLabel>
+          <ProductLabel htmlFor="input">Chiết khấu 1 (%)</ProductLabel>
           <NumericFormat
             value={form?.firstPolicyStandardAfterDiscount ?? 5}
             thousandSeparator
@@ -115,7 +115,7 @@ const StrategyProductInputGroupRight = ({
           />
         </div>
         <div>
-          <ProductLabel htmlFor="input">Chính sách 2 (%)</ProductLabel>
+          <ProductLabel htmlFor="input">Chiết khấu 2 (%)</ProductLabel>
           <NumericFormat
             value={form.secondPolicyStandardAfterDiscount ?? 5}
             thousandSeparator

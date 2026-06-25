@@ -931,7 +931,7 @@ const ProductDefaultInputs = ({
                     if (isCreateMode) {
                       productStore.updateProductForm(
                         "productSpecialNote",
-                        value
+                        value,
                       );
                     } else {
                       if (onChange) {
@@ -956,7 +956,7 @@ const ProductDefaultInputs = ({
             {/* Cột phải */}
             <div className="space-y-6">
               <div>
-                <ProductLabel htmlFor="input">Mã số nhà cung cấp</ProductLabel>
+                <ProductLabel htmlFor="input">Mã gốc nhà cung cấp</ProductLabel>
                 <Input
                   type="text"
                   id="input"
@@ -982,8 +982,8 @@ const ProductDefaultInputs = ({
                       isValidSupplierCode === null
                         ? ""
                         : isValidSupplierCode
-                        ? ""
-                        : "text-red-500"
+                          ? ""
+                          : "text-red-500"
                     }
                     ${isChecking ? "opacity-50" : ""}`
                       : ""
@@ -1045,7 +1045,7 @@ const ProductDefaultInputs = ({
                 id="input"
                 placeholder="Tên SAPO"
                 value={product?.sapoName || sapo || ""}
-                disabled = {isCreateMode === true}
+                disabled={isCreateMode === true}
                 onChange={handleWebsiteProductNameChange}
               />
             </div>
@@ -1057,7 +1057,7 @@ const ProductDefaultInputs = ({
                 placeholder="Ô tự động điền"
                 className="text-red-500 w-full"
                 value={product?.displayWebsiteName || websiteProductName || ""}
-                disabled = {isCreateMode === true}
+                disabled={isCreateMode === true}
                 onChange={handleWebsiteProductNameChange}
               />
             </div>
@@ -1168,7 +1168,7 @@ const ProductDefaultInputs = ({
             {/* Cột phải */}
             <div className="space-y-6">
               <div>
-                <ProductLabel htmlFor="input">Mã số nhà cung cấp</ProductLabel>
+                <ProductLabel htmlFor="input">Mã gốc nhà cung cấp</ProductLabel>
                 <Input
                   type="text"
                   id="input"
@@ -1193,8 +1193,8 @@ const ProductDefaultInputs = ({
                           isValidSupplierCode === null
                             ? ""
                             : isValidSupplierCode
-                            ? "text-blue-500"
-                            : "text-red-500"
+                              ? "text-blue-500"
+                              : "text-red-500"
                         } ${isChecking ? "opacity-50" : ""}`
                       : ""
                   }
@@ -1442,7 +1442,7 @@ const ProductDefaultInputs = ({
             </div>
 
             <div>
-              <ProductLabel htmlFor="input">Mã số nhà cung cấp</ProductLabel>
+              <ProductLabel htmlFor="input">Mã gốc nhà cung cấp</ProductLabel>
               <Input
                 type="text"
                 id="input"
@@ -1467,8 +1467,8 @@ const ProductDefaultInputs = ({
                         isValidSupplierCode === null
                           ? ""
                           : isValidSupplierCode
-                          ? "text-blue-500"
-                          : "text-red-500"
+                            ? "text-blue-500"
+                            : "text-red-500"
                       } ${isChecking ? "opacity-50" : ""}`
                     : ""
                 }

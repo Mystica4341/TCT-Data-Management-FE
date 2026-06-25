@@ -142,7 +142,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             />
           </div>
           <div>
-            <ProductLabel>Giá bán lẻ chưa KM</ProductLabel>
+            <ProductLabel>Giá bán lẻ cho website/m2</ProductLabel>
             <NumericFormat
               value={detail.retailPrice ?? ""}
               thousandSeparator

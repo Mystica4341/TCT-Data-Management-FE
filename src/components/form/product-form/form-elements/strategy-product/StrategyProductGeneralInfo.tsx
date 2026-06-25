@@ -103,7 +103,7 @@ const StrategyProductGeneralInfo = ({ product }: ProductProps) => {
                   type="number"
                   step={0.01}
                   placeholder="Ô tự động điền"
-                  value={product?.area?.toString() ?? ""}
+                  value={product?.area?.toString() || ""}
                 />
               </div>
             </div>
