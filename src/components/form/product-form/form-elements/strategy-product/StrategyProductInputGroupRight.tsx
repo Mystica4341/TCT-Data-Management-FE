@@ -48,17 +48,17 @@ const StrategyProductInputGroupRight = ({
       <div>
         <ProductLabel>Chính sách chuẩn (%)</ProductLabel>
         <NumericFormat
-          value={product?.policyStandard ?? form.policyStandard ?? 76}
+          value={product?.policyStandard ?? form.policyStandard ?? 40}
           thousandSeparator
           displayType="input"
           disabled={false}
           placeholder="Nhập chính sách chuẩn"
           allowNegative={false}
           min={0}
-          max={100}
+          max={200}
           isAllowed={(values) => {
             const { floatValue } = values;
-            return floatValue === undefined || floatValue <= 100;
+            return floatValue === undefined || floatValue <= 200;
           }}
           className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
           onValueChange={(values) => {
@@ -80,7 +80,7 @@ const StrategyProductInputGroupRight = ({
           />
         </div>
         <div>
-          <ProductLabel>Giá KM 2 (m2)</ProductLabel>
+          <ProductLabel>Giá KM 2 (m2) (Khách Lẻ)</ProductLabel>
           <NumericFormat
             value={product?.secondRemainingPriceAfterDiscount ?? ""}
             thousandSeparator
@@ -163,7 +163,7 @@ const StrategyProductInputGroupRight = ({
       </div>
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <ProductLabel htmlFor="input">Giá thực thu 1</ProductLabel>
+          <ProductLabel htmlFor="input">Tiền thực thu 1</ProductLabel>
           <NumericFormat
             value={product?.firstActualReceivedPriceAfterPolicyDiscount ?? ""}
             thousandSeparator
@@ -178,7 +178,7 @@ const StrategyProductInputGroupRight = ({
           />
         </div>
         <div>
-          <ProductLabel htmlFor="input">Giá thực thu 2</ProductLabel>
+          <ProductLabel htmlFor="input">Tiền thực thu 2</ProductLabel>
           <NumericFormat
             value={product?.secondActualReceivedPriceAfterPolicyDiscount ?? ""}
             thousandSeparator
@@ -194,7 +194,7 @@ const StrategyProductInputGroupRight = ({
         </div>
       </div>
       <div>
-        <ProductLabel htmlFor="input">Thuế</ProductLabel>
+        <ProductLabel htmlFor="input">Thuế (8%)</ProductLabel>
         <ReactSelect<{ value: number; label: string }>
           placeholder="Chọn thuế"
           noOptionsMessage={() => "Không có kết quả"}

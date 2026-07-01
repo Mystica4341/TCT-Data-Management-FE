@@ -461,7 +461,7 @@ const StrategyProductTable = () => {
                     editStrategyProductDto: {
                       ...productStore.bulkEditDto,
                       policyStandard:
-                        productStore.bulkEditDto.policyStandard ?? 76,
+                        productStore.bulkEditDto.policyStandard ?? 40,
                       firstPolicyStandardAfterDiscount:
                         productStore.bulkEditDto
                           .firstPolicyStandardAfterDiscount ?? 5,
@@ -722,11 +722,11 @@ const StrategyProductTable = () => {
                     id="policyStandard"
                     name="policyStandard"
                     placeholder="Nhập chính sách chuẩn"
-                    value={productStore.bulkEditDto.policyStandard ?? 76}
+                    value={productStore.bulkEditDto.policyStandard ?? 40}
                     onChange={(e) =>
                       productStore.setBulkEditField(
                         "policyStandard",
-                        e.target.value === "" ? 76 : Number(e.target.value)
+                        e.target.value === "" ? 50 : Number(e.target.value)
                       )
                     }
                   />

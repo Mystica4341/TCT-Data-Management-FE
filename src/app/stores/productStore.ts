@@ -153,7 +153,7 @@ export default class ProductStore {
         otherPriceByCompany: null,
         shippingFee: null,
         discount: null,
-        policyStandard: 76,
+        policyStandard: 40,
         supplierDiscountCash: null,
         supplierDiscountPercentage: null,
         firstPolicyStandardAfterDiscount: 5,
@@ -180,7 +180,7 @@ export default class ProductStore {
         otherPriceByCompany: null,
         shippingFee: null,
         discount: null,
-        policyStandard: 76,
+        policyStandard: 40,
         supplierDiscountCash: null,
         supplierDiscountPercentage: null,
         firstPolicyStandardAfterDiscount: 5,
@@ -378,7 +378,7 @@ export default class ProductStore {
       runInAction(() => {
         // Set default values for product before calculation
         if (product.policyStandard == null || product.policyStandard === 0) {
-          product.policyStandard = 76;
+          product.policyStandard = 40;
         }
         if (
           product.firstPolicyStandardAfterDiscount == null ||
@@ -787,14 +787,16 @@ export default class ProductStore {
 
     // === Web Prices ===
     function roundToNearestThousand(value: number): number {
-      const quotient = value / 1000;
-      const floorValue = Math.floor(quotient);
-      const fraction = quotient - floorValue;
+      //=== Không làm tròn ===
+      // const quotient = value / 1000;
+      // const floorValue = Math.floor(quotient);
+      // const fraction = quotient - floorValue;
 
-      if (fraction > 0.5) return (floorValue + 1) * 1000;
-      if (fraction < 0.5) return floorValue * 1000;
+      // if (fraction > 0.5) return (floorValue + 1) * 1000;
+      // if (fraction < 0.5) return floorValue * 1000;
 
-      return (floorValue % 2 === 0 ? floorValue : floorValue + 1) * 1000;
+      // return (floorValue % 2 === 0 ? floorValue : floorValue + 1) * 1000;
+      return Math.round(value);
     }
 
     function calculateWebPriceValue(

@@ -45,7 +45,9 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
           <div>
             <ProductLabel htmlFor="input">Giá tăng do NCC</ProductLabel>
             <NumericFormat
-              value={product?.supplierRisingPrice ?? form.supplierRisingPrice ?? ""}
+              value={
+                product?.supplierRisingPrice ?? form.supplierRisingPrice ?? ""
+              }
               thousandSeparator
               displayType="input"
               allowNegative={false}
@@ -59,9 +61,13 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             />
           </div>
           <div>
-            <ProductLabel htmlFor="input">Giá khác của TCT Homemart</ProductLabel>
+            <ProductLabel htmlFor="input">
+              Giá khác của TCT Homemart
+            </ProductLabel>
             <NumericFormat
-              value={product?.otherPriceByCompany ?? form.otherPriceByCompany ?? ""}
+              value={
+                product?.otherPriceByCompany ?? form.otherPriceByCompany ?? ""
+              }
               thousandSeparator
               displayType="input"
               allowNegative={false}
@@ -75,7 +81,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             />
           </div>
           <div>
-            <ProductLabel htmlFor="input">Phí vận chuyển</ProductLabel>
+            <ProductLabel htmlFor="input">Phí vận chuyển của NCC đến tay khách hàng</ProductLabel>
             <NumericFormat
               value={product?.shippingFee ?? form.shippingFee ?? ""}
               thousandSeparator
@@ -120,13 +126,16 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
         <div className="space-y-6">
           <div>
             <ProductLabel>Chiết khấu (%)</ProductLabel>
-            <Input
-              type="text"   
+            <NumericFormat
+              value={detail?.discount ?? form.discount ?? ""}
+              thousandSeparator
+              displayType="input"
               disabled={false}
               placeholder="Nhập chiết khấu"
-              value={detail?.discount ?? form.discount ?? ""}
-              onChange={(e) => {
-                update("discount", Number(e.target.value));
+              className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
+              onValueChange={(values) => {
+                const value = values.floatValue ?? 0;
+                update("discount", value);
               }}
             />
           </div>
@@ -172,7 +181,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
           </div>
           <div>
             <ProductLabel>Khuyến mãi % của NCC</ProductLabel>
-            <Input
+            {/* <Input
               type="number"
               disabled={false}
               placeholder="Nhập % khuyến mãi"
@@ -181,6 +190,20 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
                 form.supplierDiscountPercentage ??
                 ""
               }
+              onChange={(e) => {
+                update("supplierDiscountPercentage", Number(e.target.value));
+              }}
+            /> */}
+            <NumericFormat
+              value={
+                detail?.supplierDiscountPercentage ??
+                form.supplierDiscountPercentage ??
+                ""
+              }
+              thousandSeparator
+              displayType="input"
+              placeholder="Nhập % khuyến mãi"
+              className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
               onChange={(e) => {
                 update("supplierDiscountPercentage", Number(e.target.value));
               }}

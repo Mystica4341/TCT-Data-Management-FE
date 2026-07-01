@@ -338,7 +338,7 @@ const ProductDefaultInputs = ({
       );
       const factoryShortName = factory?.name?.split("/")[0]?.trim() || "";
       
-      // Lấy mã ngắn công ty (trước AK)
+      // Lấy mã ngắn công ty (trước TCT)
       const codeName = companyCode?.codeName;
       let codeNameResult = "";
       if (codeName) {
@@ -688,7 +688,7 @@ const ProductDefaultInputs = ({
       const factory = productFactoryList.find((x) => x.id === product.productFactoryId);
       const factoryShortName = factory?.name?.split("/")[0]?.trim() || "";
       
-      // Lấy mã ngắn công ty (trước AK)
+      // Lấy mã ngắn công ty (trước TCT)
       const codeName = companyCode?.codeName;
       let codeNameResult = "";
       if (codeName) {
