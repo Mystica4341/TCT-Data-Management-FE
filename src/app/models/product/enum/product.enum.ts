@@ -22,6 +22,7 @@ export enum UploadWebsiteStatus {
   Dropped = 9,
   Stopped = 10,
   VideoMissing = 11,
+  Completed = 12,
 }
 
 export enum DiscountConditions {

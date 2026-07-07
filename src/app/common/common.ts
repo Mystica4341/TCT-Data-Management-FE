@@ -37,6 +37,9 @@ export function uploadWebsiteStatusToVietnamese(status: string | number): string
     case 'VideoMissing':
     case 11:
       return 'Thiếu video';
+    case 'Completed':
+    case 12:
+      return 'Hoàn thành';
     default:
       return 'Không xác định';
   }
