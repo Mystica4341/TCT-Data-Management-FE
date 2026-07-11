@@ -60,12 +60,12 @@ function PatternTable() {
         title="TCT Homemart Data Management"
         description="Đây là bảng hệ vân của website TCT Homemart"
       />
-      <PageBreadcrumb pageTitle="Danh mục" />
+      <PageBreadcrumb pageTitle="Hệ vân" />
       <div className="space-y-6">
         <TableComponentCard
-          title="Bảng danh mục"
+          title="Bảng hệ vân"
           addButtonLink={"add-pattern"}
-          addButtonText={"Tạo danh mục"}
+          addButtonText={"Tạo hệ vân"}
           useModal={true}
           isModalOpen={isModalOpen}
           modalClose={handleModalClose}

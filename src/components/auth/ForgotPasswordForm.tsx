@@ -26,7 +26,7 @@ function ForgotPasswordForm() {
         const result = await userStore.forgotPassword({email: values.email})
         if (result) {
           toast.success('Đã gửi email khôi phục mật khẩu')
-          navigate('/reset-password-sent')
+          navigate('/reset-password')
         } else {
           toast.error('Không thể gửi email khôi phục mật khẩu')
         }

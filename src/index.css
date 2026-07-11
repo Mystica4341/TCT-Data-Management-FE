@@ -186,7 +186,7 @@ layer(base);
     cursor: pointer;
   }
   body {
-    @apply relative font-normal font-outfit z-1 bg-gray-50;
+    @apply relative font-normal font-outfit z-1 bg-gray-50 overflow-y-scroll;
   }
 }
 
@@ -290,6 +290,7 @@ layer(base);
     -webkit-appearance: none;
   }
 }
+
 
 .tableCheckbox:checked ~ span span {
   @apply opacity-100;
@@ -775,4 +776,32 @@ span.flatpickr-weekday,
 
 .simplebar-scrollbar.simplebar-visible:before {
   @apply opacity-100;
+}
+/* 1. Reset ẩn hoàn toàn thanh cuộn mặc định của trình duyệt ở tầng gốc */
+html, body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+#root {
+  height: 100% !important;
+  overflow-y: scroll !important;
+}
+
+/* 3. Định dạng lại thanh cuộn duy nhất này cho đẹp */
+#root::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+#root::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+#root::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 5px !important;
+}
+
+#root::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
 }

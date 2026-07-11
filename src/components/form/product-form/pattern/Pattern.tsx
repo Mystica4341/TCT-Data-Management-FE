@@ -81,10 +81,10 @@ const PatternGroup = ({ product, isCreateMode, onChange }: ProductProps) => {
               }}
               value={selectedPattern}
               isClearable={true}
-              placeholder={"Chọn danh mục..."}
+              placeholder={"Chọn Hệ Vân..."}
               className="react-select-container"
               classNamePrefix="react-select"
-              noOptionsMessage={() => "Không có danh mục"}
+              noOptionsMessage={() => "Không có hệ vân"}
               styles={{
                 control: (base) => ({
                   ...base,

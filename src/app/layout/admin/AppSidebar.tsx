@@ -67,6 +67,11 @@ const navItems: NavItem[] = [
     subItems: [
       { icon: <ChevronRightIcon />, name: 'Danh sách tài khoản', path: '/admin/users', pro: false },
     ]
+  },
+  {
+    icon: <ListIcon />,
+    name: 'Hướng dẫn sử dụng',
+    path: '/guide'
   }
 ]
 

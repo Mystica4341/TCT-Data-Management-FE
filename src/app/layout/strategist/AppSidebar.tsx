@@ -59,6 +59,11 @@ const navItems: NavItem[] = [
     name: "Phiếu/Đơn các loại",
     icon: <ListIcon />,
     subItems: [{ name: "Phiếu đề xuất mẫu trình", path: "/sample-borrow-application", pro: false }],
+  },
+  {
+    icon: <ListIcon />,
+    name: 'Hướng dẫn sử dụng',
+    path: '/guide'
   }
 ]
 

@@ -60,12 +60,12 @@ function StorageTable() {
           className="text-white"
           modalContent={
             <div>
-              <h1 className="text-2xl font-bold mb-2 text-black">Tạo chất liệu</h1>
+              <h1 className="text-2xl font-bold mb-2 text-black">Tạo hình thức giao hàng</h1>
               <div className="grid grid-cols-2 gap-4 space-y-2">
                 <div className="col-span-2">
-                  <ProductLabel>Tên kho</ProductLabel>
+                  <ProductLabel>Tên hình thức giao hàng</ProductLabel>
                   <Input
-                    placeholder="Nhập tên kho"
+                    placeholder="Nhập tên hình thức giao hàng"
                     value={storageStore.storageForm.name}
                     onChange={(e) =>
                       storageStore.updateStorageForm("name", e.target.value)

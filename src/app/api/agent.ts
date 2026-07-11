@@ -256,9 +256,9 @@ const Account = {
   forgotPassword: (
     dto: ForgotPasswordModel
   ): Promise<ApiResponseModel<string>> =>
-    requests.post<string>(`/auth/forgotPassword`, dto),
+    requests.post<string>(`/auth/forgot-password`, dto),
   resetPassword: (dto: ResetPasswordModel): Promise<ApiResponseModel<string>> =>
-    requests.post<string>(`/auth/resetPassword`, dto),
+    requests.post<string>(`/auth/reset-password-otp`, dto),
   resendEmailConfirm: (
     dto: ResendEmailConfirmModel
   ): Promise<ApiResponseModel<string>> =>

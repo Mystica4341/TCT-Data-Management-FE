@@ -50,6 +50,7 @@ import PolicyCategoryCreation from '../../pages/Policies/PolicyCategoryCreation.
 import CaseStudyCreation from '../../pages/CaseStudies/CaseStudyCreation.tsx'
 import CaseStudyDetail from '../../pages/CaseStudies/CaseStudyDetail.tsx'
 import CaseStudyTable from '../../pages/CaseStudies/CaseStudyTable.tsx'
+import UsageGuide from '../common/guide.tsx'
 // import { ProtectedRoute } from './protectedRoute.tsx'
 
 export const routes: RouteObject[] = [
@@ -119,6 +120,9 @@ export const routes: RouteObject[] = [
 
       // Tables - Calculated Unit
       { path: 'calculated-units', element: <CalculatedUnitTable /> },
+
+      // Tables - Calculated Unit
+      { path: 'guide', element: <UsageGuide /> },
 
       
       {path: 'policies', element: <PolicyReview />},
