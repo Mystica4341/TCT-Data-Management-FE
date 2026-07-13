@@ -510,9 +510,6 @@ const ProductDefaultInputs = ({
 const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const newQuantity = Number(e.target.value);
   const weightPerUnit = productStore.productForm.weightPerUnit ?? 0;
-  const newAreaPerBox = Number(
-    ((product?.areaPerUnit ?? 0) * newQuantity).toFixed(5)
-  );
   const newWeightPerBox = Number((weightPerUnit * newQuantity).toFixed(5));
 
   productStore.updateProductForm("quantityPerBox", newQuantity);
