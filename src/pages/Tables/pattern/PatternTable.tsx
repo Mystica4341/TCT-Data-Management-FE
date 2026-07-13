@@ -74,12 +74,12 @@ function PatternTable() {
           className="text-white"
           modalContent={
             <div>
-              <h1 className="text-2xl font-bold mb-2 text-black">Tạo danh mục</h1>
+              <h1 className="text-2xl font-bold mb-2 text-black">Tạo hệ vân</h1>
               <div className="grid grid-cols-2 gap-4 space-y-2">
                 <div className="col-span-2">
-                  <ProductLabel>Tên danh mục</ProductLabel>
+                  <ProductLabel>Tên hệ vân</ProductLabel>
                   <Input
-                    placeholder="Nhập tên danh mục (hệ vân/ thiết bị vệ sinh)"
+                    placeholder="Nhập tên hệ vân"
                     value={patternStore.patternForm.name}
                     onChange={(e) =>
                       patternStore.updatePatternForm("name", e.target.value.toUpperCase())
@@ -87,9 +87,9 @@ function PatternTable() {
                   />
                 </div>
                 <div className="col-span-2">
-                  <ProductLabel>Mã danh mục</ProductLabel>
+                  <ProductLabel>Mã hệ vân</ProductLabel>
                   <Input
-                    placeholder="Nhập mã danh mục"
+                    placeholder="Nhập mã hệ vân"
                     value={patternStore.patternForm.shortCode}
                     onChange={(e) =>
                       patternStore.updatePatternForm(
@@ -152,7 +152,7 @@ function PatternTable() {
                       Đang xử lý...
                     </>
                   ) : (
-                    "Tạo danh mục"
+                    "Tạo hệ vân"
                   )}
                 </Button>
               </div>
