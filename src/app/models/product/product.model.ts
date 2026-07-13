@@ -160,6 +160,7 @@ export interface ProductDetail {
   autoBarCode: string;
   confirmAutoBarCode: string;
   displayWebsiteName: string;
+  supplierName?: string;
   productPrice?: number;
   discountedPrice?: number;
   secondDiscountedPrice?: number;

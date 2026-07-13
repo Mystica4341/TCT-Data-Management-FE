@@ -4,7 +4,7 @@ export interface TechnicalInfoTemplate {
   id: string;
   name: string;
   patternIds: number[]; // IDs của các pattern sử dụng template này
-  template: (product: ProductDetail, waterAbsorptionValue: string, sizeList: any[], colorList: any[], surfaceList: any[], materialList: any[], patternList: any[], bodyColorList: any[]) => string;
+  template: (product: ProductDetail, waterAbsorptionValue: string, sizeList: any[], colorList: any[], surfaceList: any[], materialList: any[], patternList: any[], bodyColorList?: any[], supplierName?: string) => string;
 }
 
 // Template cho gạch Art (pattern nghệ thuật)
@@ -39,6 +39,7 @@ Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
 Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
 Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}</p>
 <p style="padding-left: 40px;"><!--more--></p>
+
 
 <h2><b>Gợi Ý Ứng Dụng Cho Gạch Vân Họa Tiết TCT Homemart</b></h2>
 Với vẻ đẹp đầy tính nghệ thuật, gạch ${product.confirmAutoBarCode} là lựa chọn lý tưởng để tạo điểm nhấn cho các không gian:
@@ -169,10 +170,43 @@ const defaultTemplate: TechnicalInfoTemplate = {
   id: "default",
   name: "Template Mặc Định",
   patternIds: [],
-  template: (product: ProductDetail, waterAbsorptionValue: string) => {
+  template: (
+    product: ProductDetail,
+    waterAbsorptionValue: string,
+    sizeList: any[] = [],
+    colorList: any[] = [],
+    surfaceList: any[] = [],
+    materialList: any[] = [],
+    patternList: any[] = [],
+    _bodyColorList: any[] = [],
+    supplierName: string = ""
+  ) => {
+    const size = sizeList.find((x) => x.id === product.actualSizeId);
+    const sizeText = size
+      ? `${Number(size.wide) / 10} cm x ${Number(size.length) / 10} cm x ${product.thicknessSize} mm`
+      : `${product.wideSize} cm x ${product.lengthSize} cm x ${product.thicknessSize} mm`;
+    const color =
+      colorList.find((x) => x.id === product.colorId)?.name || "";
+    const surface =
+      surfaceList.find((x) => x.id === product.surfaceFeatureId)?.name || "";
+    const material = materialList.find((x) => x.id === product.materialId)?.name || "";
+    const pattern =
+      patternList.find((x) => x.id === product.brickPatternId)?.name ||
+      product.brickPatternShortName ||
+      "";
+    const supplier = supplierName || "";
     const isAntiSlip = !(product.antiSlipId == 1 || product.antiSlipId == 14 || product.antiSlipId == 15);
     
-    return `Trọng lượng: ${product.weightPerUnit} kg / Viên ~ ${product.weightPerBox} kg / Thùng
+    return `Kích thước: ${sizeText}
+Nhà cung cấp: ${supplier}
+Mã NCC: ${product.supplierItemCode}
+Barcode: ${product.autoBarCode}
+Bề mặt: ${surface}
+Màu sắc: ${color}
+Hệ Vân: ${pattern}
+Chất liệu: ${material}
+Trọng lượng: ${product.weightPerUnit} kg / Viên ~ ${product.weightPerBox} kg / Thùng
+-----------------------------------------------------
 M² / thùng: ${product.areaPerBox} m² / thùng
 Chống trượt: ${isAntiSlip ? "✅" : "❌"}
 Độ hút nước: ${waterAbsorptionValue}
@@ -181,7 +215,8 @@ Dùng lát nền: ${product.isFlooring ? "✅" : "❌"}
 Dùng ốp tường: ${product.isWalling ? "✅" : "❌"}
 Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
 Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
-Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}`;
+Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}
+`;
   }
 };
 
@@ -235,8 +270,9 @@ export const generateTechnicalInfo = (
   surfaceList: any[] = [],
   materialList: any[] = [],
   patternList: any[] = [],
-  bodyColorList: any[] = []
+  bodyColorList: any[] = [],
+  supplierName: string = ""
 ): string => {
   const template = getTechnicalInfoTemplate(product);
-  return template.template(product, waterAbsorptionValue, sizeList, colorList, surfaceList, materialList, patternList, bodyColorList);
+  return template.template(product, waterAbsorptionValue, sizeList, colorList, surfaceList, materialList, patternList, bodyColorList, supplierName);
 }; 

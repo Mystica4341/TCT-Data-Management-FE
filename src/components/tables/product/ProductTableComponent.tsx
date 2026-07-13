@@ -219,6 +219,13 @@ const ProductTableComponent = ({
     );
     setSupplier(supplier);
 
+    const supplierName = selectedProduct?.supplierId
+      ? supplierStore.productSupplierRegistry.get(selectedProduct.supplierId)?.supplierName ||
+        supplierStore.productSupplierList.find((x) => x.id === selectedProduct.supplierId)
+          ?.supplierName ||
+        ""
+      : "";
+
     // Sử dụng hệ thống template mới để tạo technical info
     if (selectedProduct) {
       const technicalInfoText = generateTechnicalInfo(
@@ -229,7 +236,8 @@ const ProductTableComponent = ({
         surfaceStore.productSurfaceList,
         materialStore.productMaterialList,
         patternStore.productPatternList,
-        bodyColorStore.productBodyColorList
+        bodyColorStore.productBodyColorList,
+        supplierName
       );
       setTechnicalInfo(technicalInfoText);
     }
@@ -567,7 +575,15 @@ const ProductTableComponent = ({
                               surfaceStore.productSurfaceList,
                               materialStore.productMaterialList,
                               patternStore.productPatternList,
-                              bodyColorStore.productBodyColorList
+                              bodyColorStore.productBodyColorList,
+                              selectedProduct.supplierId
+                                ? supplierStore.productSupplierRegistry.get(selectedProduct.supplierId)
+                                    ?.supplierName ||
+                                  supplierStore.productSupplierList.find(
+                                    (x) => x.id === selectedProduct.supplierId
+                                  )?.supplierName ||
+                                  ""
+                                : ""
                             );
                             setTechnicalInfo(technicalInfoText);
                           }
