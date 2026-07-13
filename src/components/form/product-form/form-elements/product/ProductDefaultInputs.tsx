@@ -496,6 +496,29 @@ const ProductDefaultInputs = ({
     };
   }, [debouncedCheck]);
 
+  const handleCreateWeightPerUnitChange = (
+  e: React.ChangeEvent<HTMLInputElement>
+) => {
+  const newWeightPerUnit = Number(e.target.value);
+  const quantity = productStore.productForm.quantityPerBox ?? 0;
+  const newWeightPerBox = Number((newWeightPerUnit * quantity).toFixed(5));
+
+  productStore.updateProductForm("weightPerUnit", newWeightPerUnit);
+  productStore.updateProductForm("weightPerBox", newWeightPerBox);
+};
+
+const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const newQuantity = Number(e.target.value);
+  const weightPerUnit = productStore.productForm.weightPerUnit ?? 0;
+  const newAreaPerBox = Number(
+    ((product?.areaPerUnit ?? 0) * newQuantity).toFixed(5)
+  );
+  const newWeightPerBox = Number((weightPerUnit * newQuantity).toFixed(5));
+
+  productStore.updateProductForm("quantityPerBox", newQuantity);
+  productStore.updateProductForm("weightPerBox", newWeightPerBox);
+  };
+
   const handleEditQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = Number(e.target.value);
     // Use product?.areaPerUnit, fallback to 0 if not available
@@ -1071,6 +1094,30 @@ const ProductDefaultInputs = ({
                 <ProductLabel htmlFor="input">Đơn vị tính</ProductLabel>
                 <CalculatedUnit product={product} isCreateMode={isCreateMode} />
               </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <ProductLabel htmlFor="input">
+                    Khối lượng KG/Viên
+                  </ProductLabel>
+                  <Input
+                    type="number"
+                    id="input"
+                    placeholder="Ô tự động điền"
+                    onChange={handleCreateWeightPerUnitChange}
+                    value={productStore.productForm.weightPerUnit ?? ""}
+                  />
+                </div>
+                <div>
+                  <ProductLabel htmlFor="input">Số lượng</ProductLabel>
+                  <Input
+                    type="number"
+                    id="input"
+                    placeholder="Ô tự động điền"
+                    onChange={handleCreateQuantityChange}
+                    value={productStore.productForm.quantityPerBox ?? ""}
+                  />
+                </div>
+              </div>
               {/* Giao hàng tại và Số ngày giao hàng cùng 1 row 2 col */}
               <div className="grid grid-cols-2 gap-6">
                 <div>
@@ -1101,6 +1148,30 @@ const ProductDefaultInputs = ({
                   className="text-red-500"
                   value={productStore.productForm.autoCalculatedUnit || ""}
                 />
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <ProductLabel htmlFor="input">Diện tích 1 viên</ProductLabel>
+                  <Input
+                    type="number"
+                    step={0.05}
+                    id="input"
+                    disabled
+                    placeholder="Ô tự động điền"
+                    value={product?.areaPerUnit}
+                  />
+                </div>
+                <div>
+                  <ProductLabel htmlFor="input">Diện tích 1 thùng</ProductLabel>
+                  <Input
+                    type="number"
+                    step={0.05}
+                    id="input"
+                    disabled
+                    placeholder="Ô tự động điền"
+                    value={product?.areaPerBox}
+                  />
+                </div>
               </div>
               <div>
                 <ProductLabel htmlFor="factory">Nhà máy</ProductLabel>

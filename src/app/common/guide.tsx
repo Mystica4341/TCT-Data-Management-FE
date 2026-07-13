@@ -18,7 +18,7 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="../../../public/images/guide/Bảng Mã Hàng Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="../../../public/images/guide/Bảng%20Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
           <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
@@ -43,11 +43,21 @@ const UsageGuide: React.FC = () => {
       </section>
 
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Thêm Sản Phẩm</h2>
+        <li className="flex items-center gap-2">
+          <CgWebsite className="w-6 h-6 hover:opacity-50" />
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Thông tin chi tiết mã hàng</h2>
+        </li>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <li>Xem danh sách mã hàng và thông tin liên quan.</li>
-          <li>Tạo / gửi phiếu đề xuất mẫu trình khi cần.</li>
-          <li>Sử dụng các dữ liệu đã được Admin cấu hình sẵn.</li>
+          <img src="../../../public/images/guide/Thông%20Tin%20Website%20Form.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <br />
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Đối với Google Keeps: </h3>
+          <li>Copy nội dung trong phần <b>Thông tin kỹ thuật</b>. copy tới dải phân cách <b>"----"</b></li>
+          <li>Tạo mới một trang <a href="https://keep.google.com/u/0/#label/TCT%20GROUP" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline font-semibold">Google Keep</a> và dán nội dung đã copy.</li>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Đối với đăng website TCT Homemart: </h3>
+          <li>Copy mã sản phẩm</li>
+          <li>Copy các thông số liên quan trong và sau phần <b>Thông tin kỹ thuật</b></li>
+          <li>Chọn <b>Sản Phẩm</b> -{'>'} <b>Thêm mới</b></li>
+          <li>Dán mã ngắn vào phần nội dung và lưu lại.</li>
         </ul>
       </section>
 

@@ -570,12 +570,14 @@ const ProductTableComponent = ({
                             const technicalInfoText = generateTechnicalInfo(
                               selectedProduct,
                               waterAbsorptionValue,
+                              // Lấy danh sách các thuộc tính từ store
                               sizeStore.productSizeList,
                               colorStore.productColorList,
                               surfaceStore.productSurfaceList,
                               materialStore.productMaterialList,
                               patternStore.productPatternList,
                               bodyColorStore.productBodyColorList,
+                              // Lấy tên nhà cung cấp từ supplierId
                               selectedProduct.supplierId
                                 ? supplierStore.productSupplierRegistry.get(selectedProduct.supplierId)
                                     ?.supplierName ||
