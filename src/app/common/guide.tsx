@@ -2,6 +2,7 @@ import React from 'react'
 import { FaEye } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { TbCircleLetterS } from "react-icons/tb";
+import ProductLabel from '../../components/form/product-form/ProductLabel';
 
 const UsageGuide: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="../../../public/images/guide/Bảng%20Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Bảng%20Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
           <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
@@ -48,11 +49,14 @@ const UsageGuide: React.FC = () => {
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Thông tin chi tiết mã hàng</h2>
         </li>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="../../../public/images/guide/Thông%20Tin%20Website%20Form.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+
+          <img src="/images/guide/Thông%20Tin%20Website%20Form.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
+
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Đối Với Google Keeps: </h3>
           <li>Copy nội dung trong phần <b>Thông tin kỹ thuật</b>. copy tới dải phân cách <b>"----"</b></li>
           <li>Tạo mới một trang <a href="https://keep.google.com/u/0/#label/TCT%20GROUP" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline font-semibold">Google Keep</a> và dán nội dung đã copy.</li>
+          
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Đối Với Đăng Website TCT Homemart: </h3>
           <li>Copy mã sản phẩm</li>
           <li>Copy các thông số liên quan trong và sau phần <b>Thông tin kỹ thuật</b></li>
@@ -64,20 +68,76 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Hệ Vân</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="../../../public/images/guide/Hệ%20Vân%20Page.png" alt="Page Hệ Vân" className="w-full h-auto rounded-lg" />
+
+          <img src="/images/guide/Hệ%20Vân%20Page.png" alt="Page Hệ Vân" className="w-full h-auto rounded-lg" />
           <br />
+
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
           <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Hệ Vân</b> .</li>
+
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Hệ Vân: </h3>
-          <img src="../../../public/images/guide/Hệ%20Vân%20Form.png" alt="Form Hệ Vân" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Hệ%20Vân%20Form.png" alt="Form Hệ Vân" className="w-full h-auto rounded-lg" />
           <br />
           <li>Chọn <b>Tạo Hệ Vân</b> để tạo hệ vân mới.</li>
           <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
           <li><b>Tên Hệ Vân:</b> Tên của hệ vân cần tạo.</li>
           <li><b>Mã Hệ Vân:</b> Mã của hệ vân cần tạo.</li>
           <li><b>Ký Hiệu:</b> Ký hiệu của hệ vân cần tạo. (trường hợp đặc biệt)</li>
           <li><b>Ghi Chú:</b> Thông tin ghi chú thêm cho hệ vân.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Nhà Cung Cấp</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Nhà%20Cung%20Cấp%20Page.png" alt="Page Nhà Cung Cấp" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Nhà Cung Cấp</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Nhà Cung Cấp: </h3>
+          <img src="/images/guide/Nhà%20Cung%20Cấp%20Form.png" alt="Form Nhà Cung Cấp" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Nhà Cung Cấp</b> để tạo nhà cung cấp mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Sản Phẩm Nhà Cung Cấp:</b> Sản phẩm của nhà cung cấp đó (GACH, TONGHOP, ...).</li>
+          <li><b>Tên Nhà Cung Cấp:</b> Tên của nhà cung cấp cần tạo.</li>
+          <li><b>Khu Vực:</b> Khu vực của nhà cung cấp cần tạo (Được tạo theo biển số xe).</li>
+          <li className='flex items-center gap-1'><b>Phân Loại Khách Hàng:</b> Phân loại khách hàng của nhà cung cấp (Đưa chuột vào dấu ? để xem chi tiết).
+          <ProductLabel
+            htmlFor="customerClassification"
+            tooltipId="unique-tooltip-id"
+            tooltip={`D: DISTRIBUTORS ( NHÀ PHÂN PHỐI )\nF: FACTORY ( NHÀ MÁY SẢN XUẤT )\nC: COMPANY ( CÔNG TY THÀNH CHUNG )\nP: PUBLIC ( MÃ HÀNG - NHIỀU NCC )`}
+          > </ProductLabel> 
+          </li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Nhà Máy</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Nhà%20Máy%20Page.png" alt="Page Nhà Máy" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Nhà Máy</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Nhà Máy: </h3>
+          <img src="/images/guide/Nhà%20Máy%20Form.png" alt="Form Nhà Máy" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Nhà Máy</b> để tạo nhà máy mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Nhà Máy:</b> Mã của nhà máy cần tạo.</li>
+          <li><b>Tên Nhà Máy:</b> Tên của nhà máy cần tạo.</li>
         </ul>
       </section>
     </div>
