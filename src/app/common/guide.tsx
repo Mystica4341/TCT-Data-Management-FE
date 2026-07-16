@@ -140,6 +140,136 @@ const UsageGuide: React.FC = () => {
           <li><b>Tên Nhà Máy:</b> Tên của nhà máy cần tạo.</li>
         </ul>
       </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Bề Mặt</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Bề%20Mặt%20Page.png" alt="Page Bề Mặt" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Bề Mặt</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Bề Mặt: </h3>
+          <img src="/images/guide/Bề%20Mặt%20Form.png" alt="Form Bề Mặt" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Bề Mặt</b> để tạo bề mặt mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Bề Mặt:</b> Mã của bề mặt cần tạo.</li>
+          <li><b>Mô Tả Bề Mặt:</b> Mô tả của bề mặt cần tạo.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Chất Liệu</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Chất%20Liệu%20Page.png" alt="Page Chất Liệu" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Chất Liệu</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Chất Liệu: </h3>
+          <img src="/images/guide/Chất%20Liệu%20Form.png" alt="Form Chất Liệu" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Chất Liệu</b> để tạo chất liệu mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Chất Liệu:</b> Mã của chất liệu cần tạo.</li>
+          <li><b>Mô Tả Chất Liệu:</b> Mô tả của chất liệu cần tạo.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Màu Sắc</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Màu%20Sắc%20Page.png" alt="Page Màu Sắc" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Màu Sắc</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Màu Sắc: </h3>
+          <img src="/images/guide/Màu%20Sắc%20Form.png" alt="Form Màu Sắc" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Màu Sắc</b> để tạo màu sắc mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Màu Sắc:</b> Mã của màu sắc cần tạo.</li>
+          <li><b>Mã Màu Sắc:</b> Mã màu tự tạo khi chọn màu bên bảng màu</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Màu Xương Gạch</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Màu%20Xương%20Gạch%20Page.png" alt="Page Màu Xương Gạch" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Màu Xương Gạch</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Màu Xương Gạch: </h3>
+          <img src="/images/guide/Màu%20Xương%20Gạch%20Form.png" alt="Form Màu Xương Gạch" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Màu Xương Gạch</b> để tạo màu sắc mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Tên Màu Xương Gạch:</b> Tên của màu xương gạch cần tạo.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Xuất Xứ</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Xuất%20Xứ%20Page.png" alt="Page Xuất Xứ" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Xuất Xứ</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Xuất Xứ: </h3>
+          <img src="/images/guide/Xuất%20Xứ%20Form.png" alt="Form Xuất Xứ" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Xuất Xứ</b> để tạo xuất xứ mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Tên Xuất Xứ:</b> Tên của xuất xứ cần tạo.</li>
+          <li><b>Mã Xuất Xứ:</b> Mã của xuất xứ cần tạo.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Kích Thước</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Kích%20Thước%20Page.png" alt="Page Kích Thước" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Kích Thước</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Kích Thước: </h3>
+          <img src="/images/guide/Kích%20Thước%20Form.png" alt="Form Kích Thước" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Kích Thước</b> để tạo kích thước mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Công Ty:</b> Mã này ứng với (Chiều Rộng x Dài) % 10 (cm).</li>
+        </ul>
+      </section>
     </div>
   )
 }
