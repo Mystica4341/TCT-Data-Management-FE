@@ -587,7 +587,9 @@ const ProductTableComponent = ({
                                   ""
                                 : ""
                             );
+                            //Default dynamic input template base on selected product
                             setTechnicalInfo(technicalInfoText);
+                            //Change to static template
                           }
                         }}
                         className="px-3 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
