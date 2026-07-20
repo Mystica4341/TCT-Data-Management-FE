@@ -63,6 +63,7 @@ export default observer(function LineChartOne() {
       } else {
         // Sử dụng dữ liệu mẫu nếu API chưa có
         const mockData: ProductStatisticsResponse = {
+          // @ts-ignore
           dailyData: generateMockDailyData(),
           monthlyData: generateMockMonthlyData(),
           totalUploaded: 1250,
@@ -74,6 +75,7 @@ export default observer(function LineChartOne() {
       console.error("Error loading statistics:", error);
       // Sử dụng dữ liệu mẫu nếu có lỗi
       const mockData: ProductStatisticsResponse = {
+        // @ts-ignore
         dailyData: generateMockDailyData(),
         monthlyData: generateMockMonthlyData(),
         totalUploaded: 1250,
