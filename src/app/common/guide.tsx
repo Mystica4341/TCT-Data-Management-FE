@@ -270,6 +270,136 @@ const UsageGuide: React.FC = () => {
           <li><b>Mã Công Ty:</b> Mã này ứng với (Chiều Rộng x Dài) % 10 (cm).</li>
         </ul>
       </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Mã Công Ty</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Mã%20Công%20Ty%20Page.png" alt="Page Mã Công Ty" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Mã Công Ty</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Mã Công Ty: </h3>
+          <img src="/images/guide/Mã%20Công%20Ty%20Form.png" alt="Form Mã Công Ty" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Mã Công Ty</b> để tạo mã công ty mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Công Ty:</b> Mã này ứng với (Chiều Rộng x Dài) % 10 (cm) -TCT.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Gia Công</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Gia%20Công%20Page.png" alt="Page Gia Công" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Gia Công</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Gia Công: </h3>
+          <img src="/images/guide/Gia%20Công%20Form.png" alt="Form Gia Công" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Gia Công</b> để tạo dịch vụ gia công mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã gia công:</b> Mã của dịch vụ gia công.</li>
+          <li><b>Mô tả gia công:</b> Mô tả về dịch vụ gia công.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Kho Hàng</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Kho%20Hàng%20Page.png" alt="Page Kho Hàng" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Kho Hàng</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Kho Hàng: </h3>
+          <img src="/images/guide/Kho%20Hàng%20Form.png" alt="Form Kho Hàng" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Kho Hàng</b> để tạo kho hàng mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Hình Thức Giao Hàng:</b> Loại hình thức giao hàng.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Mức Độ Chống Trơn Trượt</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Mức%20Độ%20Chống%20Trơn%20Trượt%20Page.png" alt="Page Mức Độc Chống Trơn Trượt" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Mức Độc Chống Trơn Trượt</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Mức Độc Chống Trơn Trượt: </h3>
+          <img src="/images/guide/Mức%20Độ%20Chống%20Trơn%20Trượt%20Form.png" alt="Form Mức Độc Chống Trơn Trượt" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Mức Độc Chống Trơn Trượt</b> để tạo mức độc chống trơn trượt mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Mã Mức Độ Chống Trơn Trượt:</b> Mã của mức độ chống trơn trượt.</li>
+          <li><b>Mô Tả Mức Độ Chống Trơn Trượt:</b> Mô tả về mức độ chống trơn trượt.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Mức Độ Hút Nước</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Mức%20Độ%20Hút%20Nước%20Page.png" alt="Page Mức Độc Hút Nước" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Mức Độc Hút Nước</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Mức Độc Hút Nước: </h3>
+          <img src="/images/guide/Mức%20Độ%20Hút%20Nước%20Form.png" alt="Form Mức Độc Hút Nước" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Mức Độc Hút Nước</b> để tạo mức độc hút nước mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Ký Hiệu Mức Độ Hút Nước:</b> Ký hiệu của mức độ hút nước. (Ví dụ: {'>'}, {'<'}, =)</li>
+          <li><b>Số Liệu Mức Độ Hút Nước:</b> Số liệu về mức độ hút nước.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Hướng dẫn Đơn Vị Tính</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <img src="/images/guide/Đơn%20Vị%20Tính%20Page.png" alt="Page Đơn Vị Tính" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Danh Mục Sản Phẩm -{'>'} <b>Đơn Vị Tính</b> .</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Tạo Đơn Vị Tính: </h3>
+          <img src="/images/guide/Đơn%20Vị%20Tính%20Form.png" alt="Form Đơn Vị Tính" className="w-full h-auto rounded-lg" />
+          <br />
+          <li>Chọn <b>Tạo Đơn Vị Tính</b> để tạo đơn vị tính mới.</li>
+          <li>Nhập thông tin cần thiết và nhấn <b>Lưu</b>.</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Tên Đơn Vị Tính:</b> Tên của đơn vị tính.</li>
+          <li><b>Đơn Vị Tính Tự Động:</b> Tên cho bên kỹ thuật code lưu vào database.</li>
+        </ul>
+      </section>
     </div>
   )
 }
