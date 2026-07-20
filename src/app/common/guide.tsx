@@ -19,6 +19,16 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Tạo Mã Hàng:</b> Dẫn đến trang tạo mã hàng và nhập thông tin cần thiết.</li>
+          <li><b>Nhập File:</b> Cho phép nhập dữ liệu mã hàng từ file Excel <b>(Chưa hoàn thiện)</b>.</li>
+          <li><b>Xuất File:</b> Cho phép xuất dữ liệu mã hàng ra file Excel.</li>
+          <li><b>Nâng Cao:</b> Bộ lọc giúp hiển thị dữ liệu theo 2 tiêu chí: Nhà Cung Cấp và Kích Thước </li>
+
+          <br />
           <img src="/images/guide/Mã%20Hàng%20Page.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
 
@@ -45,14 +55,7 @@ const UsageGuide: React.FC = () => {
             <span>: Xem chi tiết thông tin mã hàng.</span>
           </li>
 
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
-          <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
-          <li><b>Tạo Mã Hàng:</b> Dẫn đến trang tạo mã hàng và nhập thông tin cần thiết.</li>
-          <li><b>Nhập File:</b> Cho phép nhập dữ liệu mã hàng từ file Excel <b>(Chưa hoàn thiện)</b>.</li>
-          <li><b>Xuất File:</b> Cho phép xuất dữ liệu mã hàng ra file Excel.</li>
-          <li><b>Nâng Cao:</b> Bộ lọc giúp hiển thị dữ liệu theo 2 tiêu chí: Nhà Cung Cấp và Kích Thước </li>
-
+          <br />
           <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_1.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
           
@@ -69,13 +72,12 @@ const UsageGuide: React.FC = () => {
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
           <div>
-            <button className="btn-download" onClick={() => window.open('/docs/Bảng Mã Khu Vực.docx', '_blank')}>
+            <button className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onClick={() => window.open('/docs/Bảng Mã Khu Vực.docx', '_blank')}>
               Tải xuống Bảng Mã Khu Vực
             </button>
           </div>
 
           <br/>
-
           <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_2.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
 
