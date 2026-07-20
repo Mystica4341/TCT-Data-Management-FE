@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaEye } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
-import { TbCircleLetterS } from "react-icons/tb";
+import { BsFileEarmarkPpt } from "react-icons/bs";
 import ProductLabel from '../../components/form/product-form/ProductLabel';
 
 const UsageGuide: React.FC = () => {
@@ -33,7 +33,7 @@ const UsageGuide: React.FC = () => {
             <span>: Hiển thị thông tin liên quan đến mã hàng để upload website.</span>
           </li>
           <li className="flex items-center gap-1">
-            <TbCircleLetterS className="w-6 h-6 hover:opacity-50" />
+            <BsFileEarmarkPpt className="w-6 h-6 hover:opacity-50" />
             <span>: Hiển thị thông tin liên quan đến mã hàng để upload Mã Dự Án <b>(Chưa hoàn thiện).</b></span>
           </li>
           <li className="flex items-center gap-1">

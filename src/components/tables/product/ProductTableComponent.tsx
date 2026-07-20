@@ -26,7 +26,7 @@ import { useTheme } from "../../../app/context/ThemeContext.tsx";
 import { ProductSupplierDto } from "../../../app/models/product/productSupplier.model.ts";
 import { FaEye } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
-import { TbCircleLetterS } from "react-icons/tb";
+import { BsFileEarmarkPpt } from "react-icons/bs";
 import { Tooltip } from "react-tooltip";
 
 interface ProductTableComponentProps {
@@ -407,9 +407,9 @@ const ProductTableComponent = ({
             onClick={() => handleViewUploadSapo(row.id)}
             className="dark:text-blue-600 text-emerald-500 hover:underline font-medium"
             data-tooltip-id="view-tooltip"
-            data-tooltip-content="Sapo"
+            data-tooltip-content="Mã Dự Án"
           >
-            <TbCircleLetterS className="w-6 h-6 hover:opacity-50" />
+            <BsFileEarmarkPpt className="w-6 h-6 hover:opacity-50" />
           </button>
           <button
             onClick={() => handleView(row)}
