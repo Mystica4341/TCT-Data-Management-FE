@@ -341,7 +341,7 @@ const ProductTableComponent = ({
       },
     },
     {
-      name: "Mã của NCC",
+      name: "Mã gốc",
       selector: (row) => row.supplierItemCode,
       sortable: true,
       minWidth: "180px",
