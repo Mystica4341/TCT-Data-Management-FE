@@ -230,6 +230,7 @@ export const technicalInfoTemplates: TechnicalInfoTemplate[] = [
 
 // Hàm để lấy template phù hợp dựa trên pattern
 export const getTechnicalInfoTemplate = (product: ProductDetail): TechnicalInfoTemplate => {
+  product;
   /*// Tìm template dựa trên pattern ID hoặc tên pattern
   const patternId = product.brickPatternId;
   const patternName = product.brickPatternShortName || "";

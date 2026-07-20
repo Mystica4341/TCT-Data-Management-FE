@@ -29,7 +29,7 @@ export default observer(function LineChartOne() {
         "0"
       )}-${String(i + 1).padStart(2, "0")}`,
       count: Math.floor(Math.random() * 20) + 5, // Random số từ 5-25
-      uploadStatus: UploadWebsiteStatus.Uploaded,
+      uploadStatus: typeof UploadWebsiteStatus.Completed,
     }));
   };
 
@@ -40,7 +40,7 @@ export default observer(function LineChartOne() {
     return Array.from({ length: 12 }, (_, i) => ({
       date: `${currentYear}-${String(i + 1).padStart(2, "0")}-01`,
       count: Math.floor(Math.random() * 200) + 50, // Random số từ 50-250
-      uploadStatus: UploadWebsiteStatus.Uploaded,
+      uploadStatus: UploadWebsiteStatus.Completed,
     }));
   };
 
@@ -55,7 +55,7 @@ export default observer(function LineChartOne() {
       const data = await productStore.getProductStatistics(
         startDate,
         endDate,
-        UploadWebsiteStatus.Uploaded // Chỉ lấy sản phẩm có uploadStatus là "đã đăng"
+        UploadWebsiteStatus.Completed // Chỉ lấy sản phẩm có uploadStatus là "đã đăng"
       );
 
       if (data) {
