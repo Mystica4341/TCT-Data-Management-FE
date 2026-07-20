@@ -995,7 +995,7 @@ const ProductTableComponent = ({
       >
         <div className="p-4 max-h-[80vh] overflow-y-scroll">
           <h2 className="text-2xl font-bold my-5 text-center text-black dark:text-white">
-            THÔNG TIN SAPO GẠCH ỐP LÁT
+            THÔNG TIN MÃ DỰ ÁN GẠCH ỐP LÁT
           </h2>
           {selectedProduct ? (
             <div className="grid grid-cols-1 gap-4">

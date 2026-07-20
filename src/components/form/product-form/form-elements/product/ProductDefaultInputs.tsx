@@ -666,7 +666,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     }
   };
 
-  // Hàm cập nhật tên SAPO cho edit mode
+  // Hàm cập nhật tên Mã Dự Án cho edit mode
   const updateSapoNameForEdit = () => {
     if (
       product?.brickPatternId &&
@@ -1056,14 +1056,14 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
           </div>
 
-          {/* PHẦN 2: Tên SAPO và Tên hiển thị website */}
+          {/* PHẦN 2: Tên Mã Dự Án và Tên hiển thị website */}
           <div className="mt-6 space-y-6">
             <div>
-              <ProductLabel htmlFor="input">Tên SAPO</ProductLabel>
+              <ProductLabel htmlFor="input">Tên Mã Dự Án</ProductLabel>
               <Input
                 type="text"
                 id="input"
-                placeholder="Tên SAPO"
+                placeholder="Tên Mã Dự Án"
                 value={product?.sapoName || sapo || ""}
                 disabled={isCreateMode === true}
                 onChange={handleWebsiteProductNameChange}
@@ -1304,14 +1304,14 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
           </div>
 
-          {/* PHẦN 2: Tên SAPO và Tên hiển thị website */}
+          {/* PHẦN 2: Tên Mã Dự Án và Tên hiển thị website */}
           <div className="mt-6 space-y-6">
             <div>
-              <ProductLabel htmlFor="input">Tên SAPO</ProductLabel>
+              <ProductLabel htmlFor="input">Tên Mã Dự Án</ProductLabel>
               <Input
                 type="text"
                 id="input"
-                placeholder="Tên SAPO"
+                placeholder="Tên Mã Dự Án"
                 value={product?.sapoName || ""}
                 onChange={(e) => {
                   if (onChange) {
@@ -1589,11 +1589,11 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             <div>
-              <ProductLabel htmlFor="input">Tên SAPO</ProductLabel>
+              <ProductLabel htmlFor="input">Tên Mã Dự Án</ProductLabel>
               <Input
                 type="text"
                 id="input"
-                placeholder="Tên SAPO"
+                placeholder="Tên Mã Dự Án"
                 value={product?.sapoName || ""}
                 onChange={(e) => {
                   if (onChange) {

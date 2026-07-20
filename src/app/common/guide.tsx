@@ -34,7 +34,7 @@ const UsageGuide: React.FC = () => {
           </li>
           <li className="flex items-center gap-1">
             <TbCircleLetterS className="w-6 h-6 hover:opacity-50" />
-            <span>: Hiển thị thông tin liên quan đến mã hàng để upload Sapo <b>(Chưa hoàn thiện).</b></span>
+            <span>: Hiển thị thông tin liên quan đến mã hàng để upload Mã Dự Án <b>(Chưa hoàn thiện).</b></span>
           </li>
           <li className="flex items-center gap-1">
             <FaEye className="w-6 h-6 hover:opacity-50" />
