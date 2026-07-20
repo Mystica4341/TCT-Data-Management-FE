@@ -6,7 +6,7 @@ import ProductLabel from '../../components/form/product-form/ProductLabel';
 
 const UsageGuide: React.FC = () => {
   return (
-    <div className="p-6 space-y-8">
+    <div className="p-6 space-y-8 font-sans">
       <div>
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
           Hướng dẫn sử dụng
@@ -72,9 +72,13 @@ const UsageGuide: React.FC = () => {
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
           <div>
-            <button className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onClick={() => window.open('/docs/Bảng Mã Khu Vực.docx', '_blank')}>
+            <a 
+              href="/docs/bang-ma-khu-vuc.docx" 
+              download="Bảng_Mã_Khu_Vực.docx" 
+              className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block text-center"
+            >
               Tải xuống Bảng Mã Khu Vực
-            </button>
+            </a>
           </div>
 
           <br/>
