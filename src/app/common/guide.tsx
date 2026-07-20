@@ -19,7 +19,7 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="/images/guide/Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Mã%20Hàng%20Page.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Chia làm 3 nhóm chính: </h3>
@@ -53,7 +53,7 @@ const UsageGuide: React.FC = () => {
           <li><b>Xuất File:</b> Cho phép xuất dữ liệu mã hàng ra file Excel.</li>
           <li><b>Nâng Cao:</b> Bộ lọc giúp hiển thị dữ liệu theo 2 tiêu chí: Nhà Cung Cấp và Kích Thước </li>
 
-          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_1.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_1.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
           
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã Sản Phẩm: <b>BS.MB.41-C1-84 </b></h3>
@@ -69,19 +69,14 @@ const UsageGuide: React.FC = () => {
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
           <div>
-            <h4>Tài liệu hướng dẫn</h4>
-            <a 
-              href="/docs/Bảng%20Mã%20Khu%20Vực.docx" 
-              download 
-              className="btn-download"
-            >
+            <button className="btn-download" onClick={() => window.open('/docs/Bảng Mã Khu Vực.docx', '_blank')}>
               Tải xuống Bảng Mã Khu Vực
-            </a>
+            </button>
           </div>
 
           <br/>
 
-          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_2.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_2.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã: <b>TCT-GACH-41D3 | 10x10TCT </b></h3>
