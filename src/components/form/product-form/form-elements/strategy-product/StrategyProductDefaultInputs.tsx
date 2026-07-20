@@ -31,6 +31,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={product?.listPrice ?? form.listPrice ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               allowNegative={false}
               disabled={false}
@@ -49,6 +50,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
                 product?.supplierRisingPrice ?? form.supplierRisingPrice ?? ""
               }
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               allowNegative={false}
               disabled={false}
@@ -69,6 +71,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
                 product?.otherPriceByCompany ?? form.otherPriceByCompany ?? ""
               }
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               allowNegative={false}
               disabled={false}
@@ -85,6 +88,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={product?.shippingFee ?? form.shippingFee ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               allowNegative={false}
               disabled={false}
@@ -101,6 +105,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={detail.confirmListPrice ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               allowNegative={false}
               disabled
@@ -129,6 +134,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={detail?.discount ?? form.discount ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               disabled={false}
               placeholder="Nhập chiết khấu"
@@ -144,6 +150,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={detail.supplierEstimatedPayableAmount ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               disabled
               placeholder="Ô tự động điền"
@@ -169,6 +176,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
                 detail?.supplierDiscountCash ?? form.supplierDiscountCash ?? ""
               }
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               disabled={false}
               placeholder="Nhập khuyến mãi tiền mặt"
@@ -202,6 +210,7 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
                 ""
               }
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               placeholder="Nhập % khuyến mãi"
               className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
@@ -215,10 +224,10 @@ const StrategyProductDefaultInputs = ({ product }: ProductProps) => {
             <NumericFormat
               value={detail.estimatedPurchasePriceAfterSupplierDiscount ?? ""}
               thousandSeparator
+              decimalScale={0}
               displayType="input"
               disabled
               placeholder="Ô tự động điền"
-              decimalScale={0}
               className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
             />
           </div>
