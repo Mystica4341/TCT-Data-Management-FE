@@ -19,15 +19,19 @@ const UsageGuide: React.FC = () => {
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-          <img src="/images/guide/Bảng%20Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <img src="/images/guide/Mã%20Hàng%20Page.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
-          <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
-          <li><b>Tạo Mã Hàng:</b> Dẫn đến trang tạo mã hàng và nhập thông tin cần thiết.</li>
-          <li><b>Nhập File:</b> Cho phép nhập dữ liệu mã hàng từ file Excel <b>(Chưa hoàn thiện)</b>.</li>
-          <li><b>Xuất File:</b> Cho phép xuất dữ liệu mã hàng ra file Excel.</li>
-          <li><b>Nâng Cao:</b> Bộ lọc giúp hiển thị dữ liệu theo 2 tiêu chí: Nhà Cung Cấp và Kích Thước </li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Chia làm 3 nhóm chính: </h3>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 1 - <b>Nhóm định danh mã hàng</b></h4>
+          <li>Mã Hàng sử dụng cho Website</li>
+          <li>Mã Nhà Cung Cấp</li>
+          <li>Mã Gốc - mã hàng hóa từ nhà cung cấp đặt tên</li>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 2 - <b>Nhóm về giá</b></h4>
+          <li>Giá gốc - giá trước khuyến mãi (đã bao gồm giá niêm yết nhập từ nhà cung cấp)</li>
+          <li>Giá KM - giá sau khuyến mãi dựa theo chính sách cty đưa ra</li>
+          <li><b>(Các giá trên đã bao gồm lợi nhuận cho cty)</b></li>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 3 - <b>Nhóm về thao tác</b></h4>
           <li className="flex items-center gap-1">
             <CgWebsite className="w-6 h-6 hover:opacity-50" />
             <span>: Hiển thị thông tin liên quan đến mã hàng để upload website.</span>
@@ -40,6 +44,50 @@ const UsageGuide: React.FC = () => {
             <FaEye className="w-6 h-6 hover:opacity-50" />
             <span>: Xem chi tiết thông tin mã hàng.</span>
           </li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cách Truy Vấn: </h3>
+          <li>Truy vấn vào Menu Sản Phẩm -{'>'} <b>Mã Hàng</b> .</li>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Thông Tin Cơ Bản: </h3>
+          <li><b>Tạo Mã Hàng:</b> Dẫn đến trang tạo mã hàng và nhập thông tin cần thiết.</li>
+          <li><b>Nhập File:</b> Cho phép nhập dữ liệu mã hàng từ file Excel <b>(Chưa hoàn thiện)</b>.</li>
+          <li><b>Xuất File:</b> Cho phép xuất dữ liệu mã hàng ra file Excel.</li>
+          <li><b>Nâng Cao:</b> Bộ lọc giúp hiển thị dữ liệu theo 2 tiêu chí: Nhà Cung Cấp và Kích Thước </li>
+
+          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_1.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <br />
+          
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã Sản Phẩm: <b>BS.MB.41-C1-84 </b></h3>
+          <li><b>BS:</b> Bề Mặt</li>
+          <li><b>MB:</b> Hệ Vân</li>
+          <li><b>41:</b> Khu Vực Công Ty</li>
+          <li className='flex item-center gap-1'><b>C1:</b> Phân Loại Nhà Cung Cấp <ProductLabel
+            htmlFor="customerClassification"
+            tooltipId="unique-tooltip-id"
+            tooltip={`D: DISTRIBUTORS ( NHÀ PHÂN PHỐI )\nF: FACTORY ( NHÀ MÁY SẢN XUẤT )\nC: COMPANY ( CÔNG TY THÀNH CHUNG )\nP: PUBLIC ( MÃ HÀNG - NHIỀU NCC )`}
+          > </ProductLabel> </li> 
+          <li><b>84:</b> Số thứ tự</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
+          <div>
+            <h4>Tài liệu hướng dẫn</h4>
+            <a 
+              href="/docs/Bảng%20Mã%20Khu%20Vực.docx" 
+              download 
+              className="btn-download"
+            >
+              Tải xuống Bảng Mã Khu Vực
+            </a>
+          </div>
+
+          <br/>
+
+          <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_2.png" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
+          <br />
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã: <b>TCT-GACH-41D3 | 10x10TCT </b></h3>
+          <li><b>10x10TCT:</b> kích thước dài x kích thước rộng + tên viết tắt chữ cái đầu NCC</li>
+          <li><b>Tên Tiếng Anh:</b> Tùy mặt hàng (không bắt buộc)</li>
+          <li><b>Nhà Máy:</b> Tùy mặt hàng (không bắt buộc)</li>
         </ul>
       </section>
 
