@@ -73,7 +73,7 @@ const UsageGuide: React.FC = () => {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
           <div>
             <a 
-              href="/docs/Bảng%20Mã%20Khu%20Vực.docx" 
+              href="/docs/Bảng%20Mã%20Khu%20Vực.pdf" 
               download
               className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block text-center"
             >
