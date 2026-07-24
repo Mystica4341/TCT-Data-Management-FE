@@ -4,9 +4,9 @@ export const appCurrency: string = '₫';
 
 export function uploadWebsiteStatusToVietnamese(status: string | number): string {
   switch (status) {
-    case 'Completed':
+    case 'NotUploaded':
     case 1:
-      return 'Hoành Thành';
+      return 'Chưa đăng';
     case 'Captured':
     case 2:
       return 'Đã chụp ảnh thực tế - không có Map';
@@ -37,9 +37,9 @@ export function uploadWebsiteStatusToVietnamese(status: string | number): string
     case 'VideoMissing':
     case 11:
       return 'Thiếu video';
-    case 'NotUploaded':
+    case 'Completed':
     case 12:
-      return 'Chưa đăng';
+      return 'Hoàn thành';
     default:
       return 'Không xác định';
   }

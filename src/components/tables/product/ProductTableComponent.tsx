@@ -383,7 +383,7 @@ const ProductTableComponent = ({
       cell: (row) => {
         const isUploaded =
           Number(row.uploadWebsiteStatus) === 1 ||
-          row.uploadWebsiteStatus === "Uploaded";
+          row.uploadWebsiteStatus === "Completed";
         return (
           <Badge size="xs" color={isUploaded ? "success" : "error"}>
             {uploadWebsiteStatusToVietnamese(row.uploadWebsiteStatus)}
