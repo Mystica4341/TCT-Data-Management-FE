@@ -197,26 +197,46 @@ const defaultTemplate: TechnicalInfoTemplate = {
     const supplier = supplierName || "";
     const isAntiSlip = !(product.antiSlipId == 1 || product.antiSlipId == 14 || product.antiSlipId == 15);
     
-    return `Kích thước: ${sizeText}
-Nhà cung cấp: ${supplier}
-Mã NCC: ${product.supplierItemCode}
-Barcode: ${product.autoBarCode}
-Bề mặt: ${surface}
-Màu sắc: ${color}
-Hệ Vân: ${pattern}
-Chất liệu: ${material}
-Trọng lượng: ${product.weightPerUnit} kg / Viên ~ ${product.weightPerBox} kg / Thùng
------------------------------------------------------
-M² / thùng: ${product.areaPerBox} m² / thùng
-Chống trượt: ${isAntiSlip ? "✅" : "❌"}
-Độ hút nước: ${waterAbsorptionValue}
-Chống bám bẩn: ${product.isAntiFouling ? "✅" : "❌"}
-Dùng lát nền: ${product.isFlooring ? "✅" : "❌"}
-Dùng ốp tường: ${product.isWalling ? "✅" : "❌"}
-Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
-Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
-Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}
-`;
+//     return `Kích thước: ${sizeText}
+// Nhà cung cấp: ${supplier}
+// Mã NCC: ${product.supplierItemCode}
+// Barcode: ${product.autoBarCode}
+// Bề mặt: ${surface}
+// Màu sắc: ${color}
+// Hệ Vân: ${pattern}
+// Chất liệu: ${material}
+// Trọng lượng: ${product.weightPerUnit} kg / Viên ~ ${product.weightPerBox} kg / Thùng
+// -----------------------------------------------------
+// M² / thùng: ${product.areaPerBox} m² / thùng
+// Chống trượt: ${isAntiSlip ? "✅" : "❌"}
+// Độ hút nước: ${waterAbsorptionValue}
+// Chống bám bẩn: ${product.isAntiFouling ? "✅" : "❌"}
+// Dùng lát nền: ${product.isFlooring ? "✅" : "❌"}
+// Dùng ốp tường: ${product.isWalling ? "✅" : "❌"}
+// Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
+// Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
+// Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}
+// `;
+//   }
+
+        return `Kích thước: ${sizeText}
+    Barcode: ${product.autoBarCode}
+    Bề mặt: ${surface}
+    Màu sắc: ${color}
+    Hệ Vân: ${pattern}
+    Chất liệu: ${material}
+    Trọng lượng: ${product.weightPerUnit} kg / Viên ~ ${product.weightPerBox} kg / Thùng
+    -----------------------------------------------------
+    M² / thùng: ${product.areaPerBox} m² / thùng
+    Chống trượt: ${isAntiSlip ? "✅" : "❌"}
+    Độ hút nước: ${waterAbsorptionValue}
+    Chống bám bẩn: ${product.isAntiFouling ? "✅" : "❌"}
+    Dùng lát nền: ${product.isFlooring ? "✅" : "❌"}
+    Dùng ốp tường: ${product.isWalling ? "✅" : "❌"}
+    Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
+    Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
+    Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}
+    `;
   }
 };
 

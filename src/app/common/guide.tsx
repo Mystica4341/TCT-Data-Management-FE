@@ -17,6 +17,30 @@ const UsageGuide: React.FC = () => {
       </div>
 
       <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã Sản Phẩm: <b>BS.MB.41-C1.84 </b></h3>
+          <li><b>Nhóm 1 (BS):</b> Mã ngắn của Bề Mặt</li>
+          <li><b>Nhóm 2 (MB):</b> Mã ngắn của Hệ Vân</li>
+          <li><b>Nhóm 3 (41):</b> Khu Vực Công Ty</li>
+          <li className='flex item-center gap-1'><b>Nhóm 4 (C1):</b> Phân Loại Nhà Cung Cấp <ProductLabel
+            htmlFor="customerClassification"
+            tooltipId="unique-tooltip-id"
+            tooltip={`D: DISTRIBUTORS ( NHÀ PHÂN PHỐI )\nF: FACTORY ( NHÀ MÁY SẢN XUẤT )\nC: COMPANY ( CÔNG TY THÀNH CHUNG )\nP: PUBLIC ( MÃ HÀNG - NHIỀU NCC )`}
+          > </ProductLabel> </li> 
+          <li><b>Nhóm 5 (84):</b> Số thứ tự</li>
+
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
+          <div>
+            <a 
+              href="/docs/Bảng%20Mã%20Khu%20Vực.pdf" 
+              download
+              className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block text-center"
+            >
+              Tải xuống Bảng Mã Khu Vực
+            </a>
+          </div>
+      </section>
+
+      <section className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mã Hàng</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
 
@@ -58,28 +82,6 @@ const UsageGuide: React.FC = () => {
           <br />
           <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_1.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
           <br />
-          
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">VD Mã Sản Phẩm: <b>BS.MB.41-C1-84 </b></h3>
-          <li><b>BS:</b> Bề Mặt</li>
-          <li><b>MB:</b> Hệ Vân</li>
-          <li><b>41:</b> Khu Vực Công Ty</li>
-          <li className='flex item-center gap-1'><b>C1:</b> Phân Loại Nhà Cung Cấp <ProductLabel
-            htmlFor="customerClassification"
-            tooltipId="unique-tooltip-id"
-            tooltip={`D: DISTRIBUTORS ( NHÀ PHÂN PHỐI )\nF: FACTORY ( NHÀ MÁY SẢN XUẤT )\nC: COMPANY ( CÔNG TY THÀNH CHUNG )\nP: PUBLIC ( MÃ HÀNG - NHIỀU NCC )`}
-          > </ProductLabel> </li> 
-          <li><b>84:</b> Số thứ tự</li>
-
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
-          <div>
-            <a 
-              href="/docs/Bảng%20Mã%20Khu%20Vực.pdf" 
-              download
-              className="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block text-center"
-            >
-              Tải xuống Bảng Mã Khu Vực
-            </a>
-          </div>
 
           <br/>
           <img src="/images/guide/Mã%20Hàng%20Chi%20Tiết_2.jpg" alt="Tạo Mã Hàng" className="w-full h-auto rounded-lg" />
