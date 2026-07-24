@@ -28,7 +28,7 @@ const UsageGuide: React.FC = () => {
           > </ProductLabel> </li> 
           <li><b>Nhóm 5 (84):</b> Số thứ tự</li>
 
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
+          <h3 className="text-lg text-gray-900 dark:text-white"><b>Bảng Mã Khu Vực</b></h3>
           <div>
             <a 
               href="/docs/Bảng%20Mã%20Khu%20Vực.pdf" 
@@ -57,15 +57,15 @@ const UsageGuide: React.FC = () => {
           <br />
 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Chia làm 3 nhóm chính: </h3>
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 1 - <b>Nhóm định danh mã hàng</b></h4>
+          <h4 className="text-lg text-gray-900 dark:text-white">Nhóm thứ 1 - <b>Nhóm định danh mã hàng</b></h4>
           <li>Mã Hàng sử dụng cho Website</li>
           <li>Mã Nhà Cung Cấp</li>
           <li>Mã Gốc - mã hàng hóa từ nhà cung cấp đặt tên</li>
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 2 - <b>Nhóm về giá</b></h4>
+          <h4 className="text-lg text-gray-900 dark:text-white">Nhóm thứ 2 - <b>Nhóm về giá</b></h4>
           <li>Giá gốc - giá trước khuyến mãi (đã bao gồm giá niêm yết nhập từ nhà cung cấp)</li>
           <li>Giá KM - giá sau khuyến mãi dựa theo chính sách cty đưa ra</li>
           <li><b>(Các giá trên đã bao gồm lợi nhuận cho cty)</b></li>
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Nhóm thứ 3 - <b>Nhóm về thao tác</b></h4>
+          <h4 className="text-lg text-gray-900 dark:text-white">Nhóm thứ 3 - <b>Nhóm về thao tác</b></h4>
           <li className="flex items-center gap-1">
             <CgWebsite className="w-6 h-6 hover:opacity-50" />
             <span>: Hiển thị thông tin liên quan đến mã hàng để upload website.</span>
