@@ -41,7 +41,7 @@ export function uploadWebsiteStatusToVietnamese(status: string | number): string
     case 12:
       return 'Hoàn thành';
     default:
-      return 'Không xác định';
+      return 'Chưa đăng';
   }
 }
 
