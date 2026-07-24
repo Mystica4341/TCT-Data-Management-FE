@@ -219,9 +219,10 @@ const defaultTemplate: TechnicalInfoTemplate = {
 // `;
 //   }
 
-        return `Kích thước: ${sizeText}
+        return (`Kích thước: ${sizeText}
     Barcode: ${product.autoBarCode}
-    Bề mặt: ${surface}
+    Bề mặt: ${surface} 
+    ${supplier ? `` : ""}
     Màu sắc: ${color}
     Hệ Vân: ${pattern}
     Chất liệu: ${material}
@@ -236,7 +237,7 @@ const defaultTemplate: TechnicalInfoTemplate = {
     Sử dụng trong nhà: ${product.isInside ? "✅" : "❌"}
     Sử dụng ngoài trời: ${product.isOutside ? "✅" : "❌"}
     Sản phẩm mài cạnh: ${product.isEdgeGrinding ? "✅" : "❌"}
-    `;
+    `);
   }
 };
 
