@@ -1184,7 +1184,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               <ProcessingGroup product={product} isCreateMode={isCreateMode} />
             </div>
             <div>
-              <ProductLabel htmlFor="input">Ghi chú thêm</ProductLabel>
+              <ProductLabel htmlFor="input">Link Google Keep</ProductLabel>
               <ProductTextArea
                 placeholder="Ghi chú thêm"
                 value={otherNote}
