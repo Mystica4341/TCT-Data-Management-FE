@@ -307,7 +307,7 @@ function ProductTable() {
                 </Button>
                 <Button
                   onClick={handleDownloadExcel}
-                  disabled={false}
+                  disabled={true}
                   className="ml-2 h-8 py-5 font-semibold rounded bg-sky-700 hover:bg-sky-800 text-white"
                 >
                   Xuất file
