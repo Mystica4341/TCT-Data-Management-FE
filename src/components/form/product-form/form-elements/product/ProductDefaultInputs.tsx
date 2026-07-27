@@ -482,11 +482,20 @@ const ProductDefaultInputs = ({
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const newValue = e.target.value;
-    setSupplierItemCode(newValue);
+
     if (isCreateMode) {
+      // Xử lý cập nhật cho chế độ tạo mới
+      setSupplierItemCode(newValue);
       productStore.updateProductForm("supplierItemCode", newValue);
-      debouncedCheck(newValue);
+    } else {
+      // Xử lý cập nhật cho chế độ chỉnh sửa (Edit mode)
+      if (onChange) {
+        onChange("supplierItemCode", newValue);
+      }
     }
+
+    // Vẫn gọi hàm kiểm tra trùng lặp mã cho cả 2 trường hợp
+    debouncedCheck(newValue);
   };
 
   // Cleanup debounce on unmount
@@ -986,28 +995,14 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                       : product?.supplierItemCode || ""
                   }
                   placeholder="Mã số sản phẩm của nhà cung cấp"
-                  onChange={
-                    isCreateMode
-                      ? handleSupplierItemCodeChange
-                      : (e) => {
-                          if (onChange) {
-                            onChange("supplierItemCode", e.target.value);
-                          }
-                        }
-                  }
-                  className={
-                    isCreateMode
-                      ? `
-                    ${
-                      isValidSupplierCode === null
-                        ? ""
-                        : isValidSupplierCode
-                          ? ""
-                          : "text-red-500"
-                    }
-                    ${isChecking ? "opacity-50" : ""}`
-                      : ""
-                  }
+                  onChange={handleSupplierItemCodeChange}
+                  className={`${
+                    isValidSupplierCode === null
+                      ? ""
+                      : isValidSupplierCode
+                        ? "text-blue-500" // Hoặc bỏ trống nếu không cần đổi màu khi hợp lệ
+                        : "text-red-500"
+                  } ${isChecking ? "opacity-50" : ""}`}
                 />
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -1246,26 +1241,14 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                       : product?.supplierItemCode || ""
                   }
                   placeholder="Mã số sản phẩm của nhà cung cấp"
-                  onChange={
-                    isCreateMode
-                      ? handleSupplierItemCodeChange
-                      : (e) => {
-                          if (onChange) {
-                            onChange("supplierItemCode", e.target.value);
-                          }
-                        }
-                  }
-                  className={
-                    isCreateMode
-                      ? `${
-                          isValidSupplierCode === null
-                            ? ""
-                            : isValidSupplierCode
-                              ? "text-blue-500"
-                              : "text-red-500"
-                        } ${isChecking ? "opacity-50" : ""}`
-                      : ""
-                  }
+                  onChange={handleSupplierItemCodeChange}
+                  className={`${
+                    isValidSupplierCode === null
+                      ? ""
+                      : isValidSupplierCode
+                        ? "text-blue-500" // Hoặc bỏ trống nếu không cần đổi màu khi hợp lệ
+                        : "text-red-500"
+                  } ${isChecking ? "opacity-50" : ""}`}
                 />
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -1520,26 +1503,14 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                     : product?.supplierItemCode || ""
                 }
                 placeholder="Mã số sản phẩm của nhà cung cấp"
-                onChange={
-                  isCreateMode
-                    ? handleSupplierItemCodeChange
-                    : (e) => {
-                        if (onChange) {
-                          onChange("supplierItemCode", e.target.value);
-                        }
-                      }
-                }
-                className={
-                  isCreateMode
-                    ? `${
-                        isValidSupplierCode === null
-                          ? ""
-                          : isValidSupplierCode
-                            ? "text-blue-500"
-                            : "text-red-500"
-                      } ${isChecking ? "opacity-50" : ""}`
-                    : ""
-                }
+                onChange={handleSupplierItemCodeChange}
+                className={`${
+                  isValidSupplierCode === null
+                    ? ""
+                    : isValidSupplierCode
+                      ? "text-blue-500" // Hoặc bỏ trống nếu không cần đổi màu khi hợp lệ
+                      : "text-red-500"
+                } ${isChecking ? "opacity-50" : ""}`}
               />
             </div>
 
