@@ -265,25 +265,26 @@ const ProductDefaultInputs = ({
         ? `${Number(size.wide) / 10} x ${Number(size.length) / 10} cm`
         : "";
 
-      const color = productColorList.find(
-        (x) => x.id === productStore.productForm.colorId
-      );
+      // const color = productColorList.find(
+      //   (x) => x.id === productStore.productForm.colorId
+      // );
 
-      const bodyColor = productBodyColorList.find(
-        (x) => x.id === productStore.productForm.brickBodyId
-      );
+      // const bodyColor = productBodyColorList.find(
+      //   (x) => x.id === productStore.productForm.brickBodyId
+      // );
 
-      const material = productMaterialList.find(
-        (x) => x.id === productStore.productForm.materialId
-      );
+      // const material = productMaterialList.find(
+      //   (x) => x.id === productStore.productForm.materialId
+      // );
 
-      const surfaceFeature = productSurfaceList.find(
-        (x) => x.id === productStore.productForm.surfaceFeatureId
-      );
+      // const surfaceFeature = productSurfaceList.find(
+      //   (x) => x.id === productStore.productForm.surfaceFeatureId
+      // );
 
       if (pattern?.name) {
         const newWebsiteProductName =
-          `${productStore.productForm.autoBarCode} - ${actualSize} - ${pattern.name} ${color?.name} ${surfaceFeature?.name} ${material?.name} ${bodyColor?.name}`.trim();
+          // `${productStore.productForm.autoBarCode} - ${actualSize} - ${pattern.name} ${color?.name} ${surfaceFeature?.name} ${material?.name} ${bodyColor?.name}`.trim();
+          `${productStore.productForm.autoBarCode} - ${actualSize} - ${pattern.name}`.trim();
         setWebsiteProductName(newWebsiteProductName);
         productStore.updateProductForm(
           "displayWebsiteName",
@@ -640,17 +641,27 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const supplier = productSupplierList.find(
         (x) => x.id === product.supplierId
       );
+      
       const pattern = productPatternList.find(
         (x) => x.id === product.brickPatternId
       );
-      const size = productSizeList.find((x) => x.id === product.actualSizeId);
-      const color = productColorList.find((x) => x.id === product.colorId);
-      const bodyColor = productBodyColorList.find(
-        (x) => x.id === product.brickBodyId
+
+      const size = productSizeList.find(
+        (x) => x.id === product.actualSizeId
       );
-      const material = productMaterialList.find(
-        (x) => x.id === product.materialId
-      );
+
+      // const color = productColorList.find(
+      //   (x) => x.id === product.colorId
+      // );
+
+      // const bodyColor = productBodyColorList.find(
+      //   (x) => x.id === product.brickBodyId
+      // );
+
+      // const material = productMaterialList.find(
+      //   (x) => x.id === product.materialId
+      // );
+
       const surfaceFeature = productSurfaceList.find(
         (x) => x.id === product.surfaceFeatureId
       );
@@ -664,8 +675,8 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const surfaceCode = surfaceFeature?.shortCode || "";
         const autoBarCode = `${surfaceCode}.${patternCode}.${supplier.supplierShortCode}.${orderNumber}`;
         const newWebsiteProductName =
-          `${autoBarCode} - ${actualSize} - ${pattern.name} ${color?.name} ${surfaceFeature?.name} ${material?.name} ${bodyColor?.name}`.trim();
-
+        //  `${autoBarCode} - ${actualSize} - ${pattern.name} ${color?.name} ${surfaceFeature?.name} ${material?.name} ${bodyColor?.name}`.trim();
+        `${autoBarCode} - ${actualSize} - ${pattern.name}`.trim();
         if (onChange && !isDisplayWebsiteNameManuallyEdited) {
           if (product.displayWebsiteName !== newWebsiteProductName) {
             onChange("displayWebsiteName", newWebsiteProductName);
