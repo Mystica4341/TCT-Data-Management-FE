@@ -280,7 +280,7 @@ const ProductTableComponent = ({
       name: "STT",
       selector: (row) => row.id,
       sortable: true,
-      maxWidth: "80px",
+      maxWidth: "70px",
       cell: (row) => {
         return (
           <button
@@ -363,7 +363,7 @@ const ProductTableComponent = ({
       name: "Mã gốc",
       selector: (row) => row.supplierItemCode,
       sortable: true,
-      minWidth: "130px",
+      minWidth: "140px",
       wrap: false,
       cell: (row) => (
         <div className="w-full h-full flex items-center bg-blue-700 text-white py-2 pl-3">
@@ -390,10 +390,12 @@ const ProductTableComponent = ({
     {
       name: "Đăng",
       selector: (row) => row.creator ?? "Chưa có",
+      maxWidth: "100px",
     },
     {
       name: "Sửa",
       selector: (row) => row.modifier ?? "Chưa có",
+      maxWidth: "100px",
     },
     {
       name: "Tình trạng Upload",
