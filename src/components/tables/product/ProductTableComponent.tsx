@@ -129,6 +129,7 @@ const ProductTableComponent = ({
   const [displayWebsiteName, setDisplayWebsiteName] = useState("");
   const [supplier, setSupplier] = useState<ProductSupplierDto>();
   const [productSizeSapo, setProductSizeSapo] = useState("");
+  const [actualSize, setActualSize] = useState("");
   const navigate = useNavigate();
   const {
     productStore,
@@ -146,6 +147,7 @@ const ProductTableComponent = ({
     } = useStore();
   const { theme } = useTheme();
   useEffect(() => {
+    console.log("datalist:", data);
     if (!selectedProduct) {
       setTechnicalInfo("");
       setStorageCheckingCode("");
@@ -196,9 +198,9 @@ const ProductTableComponent = ({
       (x) => x.id === selectedProduct?.brickBodyId
     );
 
-    const actualSize = size
+    setActualSize(size
       ? `${Number(size.wide) / 10} x ${Number(size.length) / 10} cm`
-      : "";
+      : "");
 
     const sapoActualSize = size?.autoSized;
     const displayWebsiteSize =
@@ -301,6 +303,23 @@ const ProductTableComponent = ({
       sortable: true,
     },
     {
+      name: "Kích thước",
+      // Ép kiểu (row as any) để lấy object actualSize
+      selector: (row) => (row as any).actualSize?.id || 0,
+      sortable: true,
+      minWidth: "130px",
+      cell: (row) => {
+        const actualSize = (row as any).actualSize;
+
+        // Kiểm tra xem object actualSize có tồn tại và có dữ liệu wide/length không
+        if (actualSize && actualSize.wide != null && actualSize.length != null) {
+          return `${Number(actualSize.wide) / 10} x ${Number(actualSize.length) / 10} cm`;
+        }
+
+        return "Chưa xác định";
+      },
+    },
+    {
       name: "Mã hàng",
       selector: (row) => row.confirmAutoBarCode,
       sortable: true,
@@ -325,7 +344,7 @@ const ProductTableComponent = ({
     {
       name: "Mã NCC",
       selector: (row) => row.supplierCode,
-      minWidth: "150px",
+      minWidth: "130px",
       cell: (row) => {
         return (
           <div
@@ -344,7 +363,7 @@ const ProductTableComponent = ({
       name: "Mã gốc",
       selector: (row) => row.supplierItemCode,
       sortable: true,
-      minWidth: "180px",
+      minWidth: "130px",
       wrap: false,
       cell: (row) => (
         <div className="w-full h-full flex items-center bg-blue-700 text-white py-2 pl-3">
