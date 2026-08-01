@@ -75,24 +75,24 @@ const StrategyProductTableComponent = ({
     {
       name: "Giá trên web",
       selector: (row) =>
-        row.webProductPrice?.toLocaleString()
-          ? appCurrency + row.webProductPrice?.toLocaleString()
-          : "Chưa có",
-      sortable: true,
-    },
-    {
-      name: "Giá khuyến mãi",
-      selector: (row) =>
-        row.webDiscountedPrice?.toLocaleString()
-          ? appCurrency + row.webDiscountedPrice?.toLocaleString()
-          : "Chưa có",
-      sortable: true,
-    },
-    {
-      name: "Giá bán lẻ của NCC",
-      selector: (row) =>
         row.retailPrice?.toLocaleString()
           ? appCurrency + row.retailPrice?.toLocaleString()
+          : "Chưa có",
+      sortable: true,
+    },
+    {
+      name: "Giá khuyến mãi 1",
+      selector: (row) =>
+        row.firstRemainingPriceAfterDiscount?.toLocaleString()
+          ? appCurrency + row.firstRemainingPriceAfterDiscount?.toLocaleString()
+          : "Chưa có",
+      sortable: true,
+    },
+    {
+      name: "Giá khuyến mãi 2",
+      selector: (row) =>
+        row.secondRemainingPriceAfterDiscount?.toLocaleString()
+          ? appCurrency + row.secondRemainingPriceAfterDiscount?.toLocaleString()
           : "Chưa có",
       sortable: true,
     },

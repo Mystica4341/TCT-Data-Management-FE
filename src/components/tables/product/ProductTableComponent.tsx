@@ -374,16 +374,16 @@ const ProductTableComponent = ({
     {
       name: "Giá gốc",
       selector: (row) =>
-        row.productPrice?.toLocaleString()
-          ? appCurrency + "" + row.productPrice?.toLocaleString()
+        row.retailPrice?.toLocaleString()
+          ? appCurrency + "" + row.retailPrice?.toLocaleString()
           : "Chưa có giá",
       sortable: true,
     },
     {
-      name: "Giá KM",
+      name: "Giá KM 1",
       selector: (row) =>
-        row.discountedPrice?.toLocaleString()
-          ? appCurrency + "" + row.discountedPrice?.toLocaleString()
+        row.firstRemainingPriceAfterDiscount?.toLocaleString()
+          ? appCurrency + "" + row.firstRemainingPriceAfterDiscount?.toLocaleString()
           : "Chưa có giá",
       sortable: true,
     },
