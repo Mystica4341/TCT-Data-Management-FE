@@ -29,12 +29,12 @@ const StrategyProductGeneralInfo = ({ product }: ProductProps) => {
             />
           </div>
           <div>
-            <ProductLabel>Mã SKU</ProductLabel>
+            <ProductLabel>Mã NCC</ProductLabel>
             <Input
               type="text"
               disabled
               placeholder="Ô tự động điền"
-              value={product?.confirmSupplierItemCode || ""}
+              value={product?.supplierItemCode || ""}
             />
           </div>
           <div>
