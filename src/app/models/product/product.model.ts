@@ -203,6 +203,8 @@ export interface ProductDetail {
   sapoName: string;
   confirmListPrice: number | null ;
   retailPrice: number | null;
+  firstRemainingPriceAfterDiscount: number | null;
+  secondRemainingPriceAfterDiscount: number | null;
   shelfCode: string;
 
   originCountryId: number;

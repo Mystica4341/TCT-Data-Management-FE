@@ -830,9 +830,9 @@ const ProductTableComponent = ({
                   <ProductLabel className="text-md font-bold mb-1">
                     Giá sản phẩm:
                   </ProductLabel>
-                  {selectedProduct.productPrice ? (
+                  {selectedProduct.retailPrice !== null ? (
                     <NumericFormat
-                      value={selectedProduct.productPrice ?? 0}
+                      value={selectedProduct.retailPrice ?? 0}
                       thousandSeparator={isEditing ? false : true}
                       prefix={isEditing ? "" : appCurrency}
                       onFocus={() => setIsEditing(true)}
@@ -852,9 +852,9 @@ const ProductTableComponent = ({
                   <ProductLabel className="text-md font-bold mb-1">
                     Giá khuyến mãi 1:
                   </ProductLabel>
-                  {selectedProduct.discountedPrice ? (
+                  {selectedProduct.firstRemainingPriceAfterDiscount !== null ? (
                     <NumericFormat
-                      value={selectedProduct.discountedPrice ?? 0}
+                      value={selectedProduct.firstRemainingPriceAfterDiscount ?? 0}
                       thousandSeparator={isEditing ? false : true}
                       prefix={isEditing ? "" : appCurrency}
                       onFocus={() => setIsEditing(true)}
@@ -874,9 +874,9 @@ const ProductTableComponent = ({
                   <ProductLabel className="text-md font-bold mb-1">
                     Giá khuyến mãi 2:
                   </ProductLabel>
-                  {selectedProduct.secondDiscountedPrice ? (
+                  {selectedProduct.secondRemainingPriceAfterDiscount !== null ? (
                     <NumericFormat
-                      value={selectedProduct.secondDiscountedPrice ?? 0}
+                      value={selectedProduct.secondRemainingPriceAfterDiscount ?? 0}
                       thousandSeparator={isEditing ? false : true}
                       prefix={isEditing ? "" : appCurrency}
                       onFocus={() => setIsEditing(true)}

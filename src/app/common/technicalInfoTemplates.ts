@@ -197,7 +197,7 @@ const defaultTemplate: TechnicalInfoTemplate = {
     const supplier = supplierName || "";
     const isAntiSlip = !(product.antiSlipId == 1 || product.antiSlipId == 14 || product.antiSlipId == 15);
     
-    const description = product.otherNote || product.productSpecialNote || "";
+    const description = product.otherNote ||  "";
 
     return `Kích thước: ${sizeText}
 {Nhà cung cấp: ${supplier}}

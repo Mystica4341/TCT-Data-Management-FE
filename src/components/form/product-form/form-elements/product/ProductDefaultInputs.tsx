@@ -1343,7 +1343,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   Giá sản phẩm website
                 </ProductLabel>
                 <NumericFormat
-                  value={product?.productPrice}
+                  value={product?.retailPrice}
                   thousandSeparator
                   prefix={appCurrency}
                   allowNegative={false}
@@ -1351,7 +1351,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   onValueChange={(values) => {
                     const { floatValue } = values;
                     if (onChange) {
-                      onChange("productPrice", floatValue ?? 0);
+                      onChange("retailPrice", floatValue ?? 0);
                     }
                   }}
                   className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
@@ -1416,7 +1416,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               <div>
                 <ProductLabel htmlFor="input">Giá khuyến mãi</ProductLabel>
                 <NumericFormat
-                  value={product?.discountedPrice}
+                  value={product?.firstRemainingPriceAfterDiscount}
                   thousandSeparator
                   prefix={appCurrency}
                   allowNegative={false}
@@ -1424,7 +1424,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   onValueChange={(values) => {
                     const { floatValue } = values;
                     if (onChange) {
-                      onChange("discountedPrice", floatValue ?? 0);
+                      onChange("firstRemainingPriceAfterDiscount", floatValue ?? 0);
                     }
                   }}
                   className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-brand-500/20 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 dark:focus:border-brand-800"
@@ -1667,7 +1667,7 @@ const handleCreateQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               />
             </div>
             <div>
-              <ProductLabel htmlFor="input">Ghi chú thêm</ProductLabel>
+              <ProductLabel htmlFor="input">Đường dẫn Google Keeps</ProductLabel>
               <ProductTextArea
                 placeholder="Ghi chú thêm"
                 value={product?.otherNote || ""}
