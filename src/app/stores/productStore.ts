@@ -811,6 +811,8 @@ export default class ProductStore {
         calculatedValue = basePrice / currentQuantity;
       } else if (unitName === "M2") {
         calculatedValue = basePrice * currentAreaPerUnit;
+      } else if (unitName === "VIÊN") {
+      calculatedValue = basePrice;
       } else if (unitName === "BỘ") {
         calculatedValue = basePrice / currentQuantity;
       } else if (unitName === "CÂY") {
