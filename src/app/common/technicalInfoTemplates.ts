@@ -199,10 +199,10 @@ const defaultTemplate: TechnicalInfoTemplate = {
     
     const description = product.otherNote ||  "";
 
-    return `Kích thước: ${sizeText}
-{Nhà cung cấp: ${supplier}}
-{Mã NCC: ${product.supplierItemCode}}
+    return `{Mã NCC: ${product.supplierItemCode}}
 Barcode: ${product.autoBarCode}
+Kích thước: ${sizeText}
+{Nhà cung cấp: ${supplier}}
 Bề mặt: ${surface}
 Màu sắc: ${color}
 Hệ Vân: ${pattern}
