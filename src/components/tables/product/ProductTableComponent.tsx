@@ -28,6 +28,10 @@ import { FaEye } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { BsFileEarmarkPpt } from "react-icons/bs";
 import { Tooltip } from "react-tooltip";
+import { QRCodeCanvas } from "qrcode.react";
+import html2canvas from "html2canvas";
+import { BsQrCode } from "react-icons/bs";
+import { useRef } from "react";
 
 interface ProductTableComponentProps {
   data: ProductDto[];
@@ -130,6 +134,9 @@ const ProductTableComponent = ({
   const [supplier, setSupplier] = useState<ProductSupplierDto>();
   const [productSizeSapo, setProductSizeSapo] = useState("");
   const [actualSize, setActualSize] = useState("");
+  const [isQrModalOpen, setIsQrModalOpen] = useState(false);
+  const [selectedQrProduct, setSelectedQrProduct] = useState<ProductDto | null>(null);
+  const qrCardRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const {
     productStore,
@@ -275,6 +282,22 @@ const ProductTableComponent = ({
     setSelectedProduct(null);
   };
 
+  const handleOpenQr = (product: ProductDto) => {
+    setSelectedQrProduct(product);
+    setIsQrModalOpen(true);
+  };
+
+  const handleDownloadPng = async () => {
+    if (qrCardRef.current && selectedQrProduct) {
+      const canvas = await html2canvas(qrCardRef.current, { scale: 3 }); // scale: 3 giúp ảnh nét hơn
+      const url = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.download = `QR_${selectedQrProduct.confirmAutoBarCode}.png`;
+      link.href = url;
+      link.click();
+    }
+  };
+
   const columns: TableColumn<ProductDto>[] = [
     {
       name: "STT",
@@ -307,7 +330,7 @@ const ProductTableComponent = ({
       // Ép kiểu (row as any) để lấy object actualSize
       selector: (row) => (row as any).actualSize?.id || 0,
       sortable: true,
-      minWidth: "130px",
+      maxWidth: "120px",
       cell: (row) => {
         const actualSize = (row as any).actualSize;
 
@@ -390,12 +413,12 @@ const ProductTableComponent = ({
     {
       name: "Đăng",
       selector: (row) => row.creator ?? "Chưa có",
-      maxWidth: "100px",
+      maxWidth: "70px",
     },
     {
       name: "Sửa",
       selector: (row) => row.modifier ?? "Chưa có",
-      maxWidth: "100px",
+      maxWidth: "70px",
     },
     {
       name: "Tình trạng Upload",
@@ -440,11 +463,20 @@ const ProductTableComponent = ({
           >
             <FaEye className="w-6 h-6 hover:opacity-50" />
           </button>
+          <button
+            onClick={() => handleOpenQr(row)}
+            className="dark:text-blue-600 text-orange-500 hover:underline font-medium"
+            data-tooltip-id="view-tooltip"
+            data-tooltip-content="Mã QR"
+          >
+            <BsQrCode className="w-6 h-6 hover:opacity-50" />
+          </button>
         </div>
       ),
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
+      minWidth: "180px",
     },
   ];
 
@@ -483,7 +515,7 @@ const ProductTableComponent = ({
           customStyles={{
             table: {
               style: {
-                minWidth: "1200px",
+                width: "100%",
               },
             },
           }}
@@ -1221,6 +1253,48 @@ const ProductTableComponent = ({
           ) : (
             <div className="text-center py-4">Đang tải thông tin...</div>
           )}
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={isQrModalOpen}
+        onClose={() => setIsQrModalOpen(false)}
+        className="w-full max-w-[400px]"
+      >
+        <div className="p-6 flex flex-col items-center">
+          {/* Khối chứa thông tin sẽ được chụp lại bằng html2canvas */}
+          <div
+            ref={qrCardRef}
+            className="flex flex-col items-center p-6 bg-white border-2 border-gray-400 w-[300px]"
+          >
+            <QRCodeCanvas
+              value={`https://tct-data-management-fe.vercel.app/products/detail/${selectedQrProduct?.id}`}
+              size={160}
+              level={"Q"}
+            />
+            <div className="mt-5 text-center flex flex-col gap-1">
+              <h3 className="font-bold text-xl text-black">
+                {selectedQrProduct?.confirmAutoBarCode}
+              </h3>
+              <p className="text-gray-800 font-medium text-lg">
+                {selectedQrProduct && (selectedQrProduct as any).actualSize
+                  ? `${Number(((selectedQrProduct as any).actualSize).wide) / 10} x ${Number(((selectedQrProduct as any).actualSize).length) / 10} cm`
+                  : "Chưa xác định"}
+              </p>
+              <p className="font-bold text-lg text-black mt-1">
+                <span className="underline mr-0.5">{appCurrency}</span>
+                {selectedQrProduct?.retailPrice?.toLocaleString() || "0"} / {selectedQrProduct?.calculatedUnit?.calculatedUnitName?.toLowerCase() || "chưa xác định"}
+              </p>
+            </div>
+          </div>
+
+          {/* Nút tải PNG (nằm ngoài phạm vi chụp ảnh) */}
+          <button
+            onClick={handleDownloadPng}
+            className="mt-6 w-[300px] py-2.5 bg-white border-2 border-gray-400 rounded-lg text-black font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Tải PNG
+          </button>
         </div>
       </Modal>
     </>

@@ -177,7 +177,7 @@ const TableComponentCard: React.FC<ComponentCardProps> = ({
           <p className="text-sm text-gray-500 dark:text-gray-400">{desc}</p>
         </div>
       )}
-      <div className="p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6">
+      <div className="p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6 h-full">
         <div className="space-y-6">{children}</div>
       </div>
       {useModal && modalContent && (
