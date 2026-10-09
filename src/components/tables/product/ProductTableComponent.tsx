@@ -1259,13 +1259,13 @@ const ProductTableComponent = ({
       <Modal
         isOpen={isQrModalOpen}
         onClose={() => setIsQrModalOpen(false)}
-        className="w-full max-w-[400px]"
+        className="w-full max-w-[450px]"
       >
         <div className="p-6 flex flex-col items-center">
           {/* Khối chứa thông tin sẽ được chụp lại bằng html2canvas */}
           <div
             ref={qrCardRef}
-            className="flex flex-col items-center p-6 bg-white border-2 border-gray-400 w-[300px]"
+            className="flex gap-4 items-center p-4 my-10 bg-white border-2 border-gray-400 w-[400px]"
           >
             <QRCodeCanvas
               value={`https://tct-data-management-fe.vercel.app/products/detail/${selectedQrProduct?.id}`}
@@ -1280,6 +1280,9 @@ const ProductTableComponent = ({
                 {selectedQrProduct && (selectedQrProduct as any).actualSize
                   ? `${Number(((selectedQrProduct as any).actualSize).wide) / 10} x ${Number(((selectedQrProduct as any).actualSize).length) / 10} cm`
                   : "Chưa xác định"}
+              </p>
+              <p className="text-gray-800 font-medium text-lg">
+                {selectedQrProduct?.originCountry?.name || "Chưa xác định"}
               </p>
               <p className="font-bold text-lg text-black mt-1">
                 <span className="underline mr-0.5">{appCurrency}</span>

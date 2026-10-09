@@ -52,6 +52,7 @@ export interface ProductDto {
   creator: string;
   modifier: string;
   sapoName: string;
+  originCountry: ProductOriginDto;
 
   // Foreign key display names
   originCountryName: string;
