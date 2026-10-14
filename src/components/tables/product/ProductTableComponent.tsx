@@ -1261,18 +1261,18 @@ const ProductTableComponent = ({
         onClose={() => setIsQrModalOpen(false)}
         className="w-full max-w-[450px]"
       >
-        <div className="p-6 flex flex-col items-center">
+        <div className="p-10 mt-10 flex flex-col items-center">
           {/* Khối chứa thông tin sẽ được chụp lại bằng html2canvas */}
           <div
             ref={qrCardRef}
-            className="flex gap-10 items-center my-10 p-2 bg-white border-1 border-gray-400 w-[420px]"
+            className="flex gap-6 items-center my-2 p-4 bg-white border-1 border-gray-400 w-[420px]"
           >
             <QRCodeCanvas
               value={`https://tct-data-management-fe.vercel.app/products/detail/${selectedQrProduct?.id}`}
-              size={158}
+              size={150}
               level={"Q"}
             />
-            <div className="text-start flex flex-col gap-4">
+            <div className="text-start flex flex-col gap-3">
               <h3 className="font-bold text-xl text-black">
                 {selectedQrProduct?.confirmAutoBarCode}
               </h3>
