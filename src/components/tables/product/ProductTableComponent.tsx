@@ -1265,14 +1265,14 @@ const ProductTableComponent = ({
           {/* Khối chứa thông tin sẽ được chụp lại bằng html2canvas */}
           <div
             ref={qrCardRef}
-            className="flex gap-10 items-center my-10 bg-white border-1 border-gray-400 w-[400px]"
+            className="flex gap-10 items-center my-10 p-2 bg-white border-1 border-gray-400 w-[400px]"
           >
             <QRCodeCanvas
               value={`https://tct-data-management-fe.vercel.app/products/detail/${selectedQrProduct?.id}`}
-              size={160}
+              size={158}
               level={"Q"}
             />
-            <div className="text-start flex flex-col gap-2">
+            <div className="text-start flex flex-col gap-4">
               <h3 className="font-bold text-xl text-black">
                 {selectedQrProduct?.confirmAutoBarCode}
               </h3>
@@ -1285,8 +1285,7 @@ const ProductTableComponent = ({
                 {selectedQrProduct?.originCountry?.name || "Chưa xác định"}
               </p>
               <p className="font-bold text-lg text-black mt-1">
-                <span className="underline mr-0.5">{appCurrency}</span>
-                {selectedQrProduct?.retailPrice?.toLocaleString() || "0"} / {selectedQrProduct?.calculatedUnit?.calculatedUnitName?.toLowerCase() || "chưa xác định"}
+                {selectedQrProduct?.retailPrice?.toLocaleString() || "0"} vnđ / {selectedQrProduct?.calculatedUnit?.calculatedUnitName?.toLowerCase() || "chưa xác định"}
               </p>
             </div>
           </div>
