@@ -1265,7 +1265,7 @@ const ProductTableComponent = ({
           {/* Khối chứa thông tin sẽ được chụp lại bằng html2canvas */}
           <div
             ref={qrCardRef}
-            className="flex gap-10 items-center my-10 p-2 bg-white border-1 border-gray-400 w-[400px]"
+            className="flex gap-10 items-center my-10 p-2 bg-white border-1 border-gray-400 w-[420px]"
           >
             <QRCodeCanvas
               value={`https://tct-data-management-fe.vercel.app/products/detail/${selectedQrProduct?.id}`}
